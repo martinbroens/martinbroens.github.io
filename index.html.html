@@ -1,0 +1,2183 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="BHP">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#0F1410">
+<link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAIAAAD8GO2jAAAAk0lEQVR42u3VMQ6AIAwF0N5AB6/hEbyI9x+ZTNwdTBojLXwKDUuTrvyXEmhp2VbXogACmAjs5/HWMIATkVwIABPLGGm5SDd2QEu8r8QFGiXgd0XDAD7gDuRGDlQNI5C/rjZAM74dgLdkBMQvIhr2DnoB0dAAfnW+gGh0AcgUoOrMsQ2oZsA8a6fug6bNFUs/AL96AEyVjDwEjpIHAAAAAElFTkSuQmCC">
+<link rel="apple-touch-icon" sizes="180x180" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALQAAAC0CAIAAACyr5FlAAADkUlEQVR42u3dMXbTUBCGUe0gFGyDJWQj7L+k4hx6GsoAkSy9+WfePefrE8vXM3IsK8fb1y/Shx0OgeAQHIJDcAgOwSE4BIfgEBwSHIJDcAgOwSE4BIfgEByCQ4JDcAgOwSE4BIfgEByCQ3BIcAgOwSE4BIfg2KFv39/h0B8KHwYHDe9w0HA6OGgY4gOOxzXAgcJfn344aDjxs+DYWgMcNAz3cdCw5rQRDhTgoGEPHwcNcPTAMftvTXDQMMfHgQIcNTj20fDJ3xOOe1hMvZyn0cMMwrHJ5TxwfOpoTv2zChzTTr58SFt5QrrJtTxwtBwez2mYulkm41ipYeTwOBY/Q+Uafv38cW9wJOK49ppeg2PGZumE45aBH4KjhY9j/e6vPWlYhmPA8EjE8eipIhxwNMCR7+MoeVe5CY7uwyMRx6M+4ICjB45wH+uuBAvZLItxtB4eoTie87FAw5jhAQcckRcYN8Vxuw84UoZHII5YH3DAEfOlpvLNUoKj6WaJxvGEjxIZTYcHHHAkfVe2drNU4ei4WdJx3O6jSkbH4QEHHGG3YCjcLFUyOm6WBjju9VEoo93wKLt5Sy8ce36fJQLHys1y+0f2Z/XAkbtZwnFE+ai8J1jJ8IADjlwcjTZLGxyx33i7HUeOj6xbTW6Co8vw6ITjFh9wwNEbR4iP+ttbL94sIThaDI9mOF73UfvZyuVHCkc6jnt95G+WiP+asHKzFF7s026z9MPxoo+qM4yOwwMOOLJxrNwshW9P2m2Wljhe8dELR60POOCIx7Fss9T+4avXZumK4y3gJrXjhwcccHTAsWazBOKI3SyNcVzzESgjdnjAAUcTHAs2S8KH9V02S28cF3w0xVHiIw7H08MDDjj64QjcLO1xnPXRF8d6H4k4Hh0ecMDRCcdzMxWOcz7yrzvP8RGK47nhUYKj8GUDxwkfC3BEHRY4Hrkp5Zo1kewjF8db0n+Gi7rhDhxZwyP5yMCxGkfyYVk2PI5JR2ETCst+/2PYS2QTDWse0S445mmA4/pmGa9h9xPSqHsg7aABDhQG4WjhY+S7aDhogIOGqThKfGyoAQ4U4KBhHxyv+6ABDhq2xPFfHzTAMf9aHjgqcXjiB+K47MMzDQcNcNAAxz98eObgEByCQ3AIDsEhOCQ4BIfgEByCQ3AIDsEhOASHBIfgEByCQ3AIDsEhOASH4JDgEByCQ3AIDsEhOASH4ND4fgOsMoFGrWfS1QAAAABJRU5ErkJggg==">
+<link rel="icon" type="image/png" sizes="512x512" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAIAAAB7GkOtAAAMt0lEQVR42u3dsZEqSRBAQTwYBNzABBzBfxGJCHQEVFBAoKdeRqQDN/TUu+q/yx620xGAoINHACAAAAgAAAIAgAAAIAAACAAAAgCAAAAgAAAIAAACAIAAACAAAAgAAAIAgAAAIAAACAAAAgCAAAAgAAAIAAACACAAAAgAAAIAgAAAIAAACAAAAgCAAAAgAAAIAAACAIAAACAAAAgAAAIAgAAAIAAACAAAAgCAAAAgAAAIAAACACAAngKAAAAgAAAIAAACAIAAACAAAAgAAAIAgAAAIAAACAAAAgCAAAAgAAAIAAACAIAAACAAAAgAAAIAgAAAIAAACACAAAAgAAAIAAACAIAAACAAAAgAAAIAgAAAIAAACAAAAgCAAAAgAAAIAAACAIAAACAAAAgAAAIAgAAAIAAACACAAHgKAAIAgAAAIAAACAAAAgCAAAAgAAAIAAACAIAAAMs4Xy8vHoUAAIlx/5bnIwBAZeILAAIA0YkvAAgARCe+BiAA0J34AiAAngIUx70AIADQnfgaIACeAnQnvgAIABCd+AIgAEB04muAAADRcS8AAgB0J74ACAAQnfgaIABAd+ILgAAAYyf+5rvhEACIjPsf/2MdDAEAE3/UpY0AIACY+NFrerdACAAmfvcfZgUAAcDEj/4ojgAgABj30Z+8dAuEAGDid3/WXgAQAEz86G9XCQACgIkf/X1at0AIACZ+9xsUBAABwLiPfmGOACAAmPjRyxC3QAgAJn538HkOCAAmfnTSeSwIACa+z9SDEgAw7n3KHp0AYBaY+D50T1IA8PKb+I6BZysAmPgmvgAgAJj4Jr4AIAAY98a9BiAAmPgmvgAgAJj4ZooAIACY+IaIBiAAmPgIAAKAcc9Oj6LHJQCY+MaBJQABwMRHABAATHzcAiEAXhsTH0sAAmDiG/cIAAJg3Jv4uAVCAEx8E58vT6YlAAEw8b2c0ZMpAAiAie9tdP3iFggBiDXAwXUILQEIQCUATqpTJwAIQCUAjqZj5hYIAag0wFl0qCwBCEAlAA6fIyQACID/WcOZWe5QOdsC4H028U386L8VOeoC4PU28R0JAXDyBcAL79w7ALGfFvMuCID33yk37i0BXg0BaE8EZ8XEFwBvhwBoACa+WyBvhwAIACa+JcDbIQACgIkvAAiABmDcuwVCAAQAE98SgAAIACa+LwdFADTAo8YSgAAIgGeLACAAfiXYxP/kcb8VuAVCACwB/gdfACwBCIAAuNIRAAFAANwClS/xBcAtEAJgCYj+s60AWAIQAAGI/qCOAAgAAuAWKPpzmQLgFggBsAREfxJfACwBCIAARH/3SgAEAAFwCxT9bVsBcAuEAFgCot+vIACWAASgG4D4t9wIgAAgAK1bIN9uJgD+RAwCEF0CzH0BsAQgAN1bIKNfAAQAAbAECIAAuAVCAARAAATAEoAAuAUSAAEQAATAEiAAAuAWCAEQAAEQAEsAAuAWSAAEQAAQAEuAAAiABiAAAiAAmQBYAhAAt0ACIAC+HBQBsAQIQCwAlgAEQAAEQAAEAAHw5aACIABugRAAS4AAFAJgCUAABEAApo11AUAA3AIJgAC4BUIALAECIACWAARAAARAAwQAAXALJAAC4BYIAbAECIBbIEsAAiAAAiAAAiAAuAUSALdAboEEAEuAAFgCLAECgAAIgAAIgADgFkgABEADBEADBEAA9hwASwACsPsjLgACIAAIgCVAAATALRACIAACIACWAATALZAACIAAIACWAAEQALdACIAACIAAWAIQALdAAlCe/gKAAFgCBEAANEAAEAABiAXAEoAAuAUSAAHw5aACgCVAAErT3xKAAAiAAAiAAAgAvhxUAATALZAAYAkQgML0twQIgKcgAAIgAAIgALgFEoDY9HcLJABYAgSgGwBLgAAgAAIQnf4CIAC4BRKA6PR3CyQAWAIEoBsAS4AAIAACEJ3+AiAAuAUSgOj0dwskAFgCBCA6/S0BAoAACEB3+guAAOAWSACi09+fiBEALAECEJ3+lgABYMIRFwDTXwAQAEuAAPhTYm6BEAABEAABsAQgAG6BBEAABAABsAQIgAC4BRIABEAABMASIAC4BRIAARAAAcASIADRnzHVAAFAAARAAARAAHALJAAC4MtBBQBLgAAUfs3YEiAACIAACIAACAC+HFQABMAtkABgCRCAwjfNWQIEAAEQAAEQAAHALZAACIBbIAHAEiAAhT82YAkQAARAAARAAAQAt0ACIABugQQAS4AAFP7epCVAABAAARAAARAA3AIJgABogABgCRCA8QGwBAgAAiAAAiAAAoAGCIAAaIAAIAACUAiAJUAA2P0RFwABEAAEwBIgAALgFkgAPAUBEAABsAQIAG6BBEAABEAAsAQIwJzB7RYIARAAAdAASwAC4BZIADTAl4MKgEdgCRAADbAECAACIAAaIAACgC8HFQANcAskAFgCBEAALAECgAAIgAYIgADgFkgAwg1wCyQAWAIEwBJgCRAABEAALAECIAC4BRIAAXALJABYAgRAAywBAoAACIAACIAA4BZIAATALZAAaIAAFP8egAZYAgQAARAAARAAARAADRAAAdAAAdAAASj8SUgNEAABwJ+IEQABEAAB0ABLgAAIgAYIgAAIgABogAAIgAC4BRIAARAAAdCA8BIwLwBugTRAABAAAdAAARAAAXALJAACIAACoAGWAAEQAA0QAAEQAAHQAAEQAAEI3wIJgABogABoQHQJMP01QAAEQAAEQAAEQAAEwJeDlhogAALgFkgANEAABEADBEAABEAABEAABEAA3AKNb4AACIBbIAHQAAEw/TVAAARAAARAAARAAATALdD4BgiAALgFEgANEADTXwMEQAAEQAD8y7AACIAAuAUa3wABEAC3QAKgAQIgABpgCRAAARAAARAAARAAt0DjGyAAAqABAqABAiAAGiAAAiAApT8RIwACIAACoAHRJUAABEADBEAABEAANEAABEAASrdAAiAAAiAAGhBdAgRAADRAAARAAARAAwRAAASgdAskAAIgAAKgAdElQAAEQAMEQAAEQAA0QAAEQABKt0ACIACLf2mKAGAJEAAB+MO0FQABEAABEIDEuBcAARCAVgMEwMR3CyQAGiAAAmDiWwIEQAAEQADCE18ABEAAKg0QABPfLZAAaIAACIBxbwkQAAEQAAFoT3wBEAABSDRAAEx8t0ACwFEABMBcswQIgCMuAAJgkAmAADji0xsgAMaWWyABwNdCtDjtlgABQABMfARAAMh/L5CJjwYIgCMuACY+AiAAjnjyDwWb+AiAADjllgDjHg0QAEdcAEx8BEAAHHG3QCa+t8OnKQBOuSXAxPd2+HwFwBEXABPBq+HjFgAB0ADvf3PiOwACoAHdADg28YnvSAiAAIQC4JyY+E6IAAhApQEOhonvzAiA96SyBDgGxr0jJADenEQAfOgmvkMlACz0E29eTvxbkQBgCfAq4sfDBAAB8O45hwIgALgF8rIZ9xogABSXAB+QiW/iCwCVAPhETHwTXwBo3QJh4pv4AkB0CcDEN+4FAAHAuDfxBQC3QJj4Jr4AYAnAxDfxBQABwMR3OAUAt0CY+AgAlgCMewQAAfDxmfgIABrgwzLxEQAEwMQ38REABMDEN/ERADTAuDfuEQAEwMQ38REAU8mrbuI7BgiAOeXlN/F96AiAsWUWmPggAKaY0WDcIwBogMdi4iMACICJb+IjALQGn4lv4iMAWAJMfBMfAUAAjHvjHgHALZCJb+IjAFgCTHwTHwFAAEx8Ex8BwC2Qie+wIQBYAox7EACqATDxQQCo3AKZ+CAAVJYAEx8EgEoATHwQABK3QMY9CADRBpj4IAAIgIkPAoAGmPggAAiAiQ8CgAAY9yAAaICJDwKAAJj4IAAIgIkPAkCyAR44CACJAHi8IABUAuB5ggBQaYCnBwJAJQAeFwgAlQB4PiAAJBrgUYAAACAAAAgAAAIAgAAAIAAACAAAAgCAAAAgAAAIAAACAIAAACAAAAgAAAIAgAAAIAAACAAAAgCAAAAgAAAIAIAAACAAAAgAAAIAgAAAIAAACAAAAgCAAAAgAAAIAAACAIAAACAAAAgAAAIAgAAAIAAACAAAAgCAAAAgAAAIAIAAeAoAAgCAAAAgAAAIAAACAIAAACAAAAgAAAIAgAAAIAAACAAAAgCAAAAgAAAIAAACAIAAACAAAAgAAAIAgAAAIAAAAgCAAAAgAAAIAAACAIAAACAAAAgAAAIAgAAAIAAACAAAAgCAAAAgAAAIAAACAIAAACAAAAgAAAIAgAAAIAAAAuApAAgAAAIAgAAAIAAACAAAAgCAAAAgAAAIAAACAMAantvnLs04Kr53AAAAAElFTkSuQmCC">
+<title>Brøns Human Performance</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@300;400;500;600;700&family=Barlow+Condensed:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=DM+Sans:wght@300;400;500&family=Fraunces:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+
+/* ═══════════════════════════════════
+   DESIGN SYSTEM — DARK
+   Brøns Human Performance
+═══════════════════════════════════ */
+:root{
+  --bg:#0F1410;
+  --sur:#161A17;
+  --sur2:#1C211E;
+  --bor:rgba(255,255,255,0.07);
+  --bor2:rgba(255,255,255,0.12);
+  --txt:#E8E4DC;
+  --mut:rgba(232,228,220,0.65);
+  --mut2:rgba(232,228,220,0.4);
+  --acc:#2D5A3D;
+  --acl:rgba(45,90,61,0.15);
+  --acm:#4A8A6A;
+  --gold:#C8A84B;
+  --goldl:rgba(200,168,75,0.12);
+  --red:#C85A5A;
+  --redl:rgba(200,90,90,0.12);
+  --blue:#5A8AC8;
+  --bluel:rgba(90,138,200,0.12);
+  --pink:#A05070;
+  --pinkl:rgba(160,80,112,0.12);
+  --amber:#C89050;
+  --ambl:rgba(200,144,80,0.12);
+  --rad:10px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--bg);
+  font-family:'Barlow',sans-serif;
+  font-weight:300;
+  color:var(--txt);
+  min-height:100vh;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ── APP SHELL ── */
+.app-header{
+  position:fixed;top:0;left:0;right:0;
+  z-index:200;
+  height:54px;
+  padding-top:env(safe-area-inset-top,0px);
+  background:rgba(12,16,13,0.95);
+  border-bottom:1px solid var(--bor);
+  display:flex;align-items:center;
+  justify-content:space-between;
+  padding-left:1.25rem;padding-right:1rem;
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+}
+.app-header.hidden{display:none}
+.header-module{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:16px;font-weight:600;
+  letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--txt);
+}
+.header-logo-small{display:flex;align-items:center;}
+
+.app-nav{
+  position:fixed!important;bottom:0!important;left:0!important;right:0!important;
+  z-index:200!important;
+  background:rgba(9,13,10,0.97);
+  border-top:1px solid var(--bor);
+  display:flex!important;
+  padding-bottom:env(safe-area-inset-bottom,0px);
+  height:calc(62px + env(safe-area-inset-bottom,0px));
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+}
+.nav-item{
+  flex:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:3px;
+  cursor:pointer;-webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;border:none;background:none;
+  color:var(--mut2);transition:color 0.18s;
+  min-height:44px;padding:6px 4px;
+}
+.nav-item.active{color:var(--acm);}
+.nav-item:active{opacity:0.6;transform:scale(0.95);}
+.nav-icon{font-size:20px;line-height:1;}
+.nav-label{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:9px;font-weight:600;
+  letter-spacing:0.08em;text-transform:uppercase;
+}
+
+.view-panel{
+  display:none;min-height:100vh;
+  padding-top:54px;
+  padding-bottom:calc(62px + env(safe-area-inset-bottom,0px));
+  background:var(--bg);
+}
+.view-panel.active{display:block;}
+#view-home{padding-top:0;background:var(--bg);}
+
+/* ── SPLASH ── */
+.splash{
+  min-height:100vh;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:2rem 1.5rem;text-align:center;
+  position:relative;overflow:hidden;
+}
+.splash::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% 5%, rgba(45,90,61,0.22) 0%, transparent 70%),
+    radial-gradient(ellipse 50% 35% at 85% 85%, rgba(200,168,75,0.04) 0%, transparent 60%);
+  pointer-events:none;
+}
+.splash-content{position:relative;z-index:1;width:100%;max-width:440px;margin:0 auto;}
+.splash-logo{margin-bottom:1.5rem;display:flex;justify-content:center;}
+.splash-tagline{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:13px;font-weight:400;
+  color:var(--mut);letter-spacing:0.08em;
+  margin-bottom:2rem;
+}
+.splash-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:1.5rem;}
+.splash-card{
+  background:var(--sur);border:1px solid var(--bor);border-radius:14px;
+  padding:1.25rem 0.75rem;cursor:pointer;
+  -webkit-tap-highlight-color:transparent;touch-action:manipulation;
+  transition:all 0.18s;display:flex;flex-direction:column;
+  align-items:center;gap:7px;min-height:44px;
+}
+.splash-card:active{background:var(--acl);border-color:rgba(74,138,106,0.3);transform:scale(0.97);}
+.splash-card-icon{font-size:1.8rem;line-height:1;}
+.splash-card-label{
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:rgba(232,228,220,0.75);
+}
+.splash-card-sub{font-size:10px;color:var(--mut2);text-align:center;line-height:1.4;}
+.splash-date{
+  font-family:'Barlow Condensed',sans-serif;font-size:10px;
+  color:rgba(232,228,220,0.16);letter-spacing:0.12em;text-transform:uppercase;
+}
+
+/* ── MODULE SHARED HEADER ── */
+.mod-hero{
+  background:var(--sur);
+  border-bottom:1px solid var(--bor);
+  padding:1.5rem 1.25rem 1.25rem;
+}
+.mod-hero-eye{
+  font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;
+  color:var(--acm);margin-bottom:0.5rem;
+}
+.mod-hero-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.4rem,8vw,3.5rem);line-height:0.9;
+  letter-spacing:0.02em;color:var(--txt);margin-bottom:0.5rem;
+}
+.mod-hero-title .g{color:var(--acm);}
+.mod-hero-sub{font-size:13px;color:var(--mut);line-height:1.6;}
+
+/* ── CARDS & BLOCKS ── */
+.card{
+  background:var(--sur);border:1px solid var(--bor);
+  border-radius:var(--rad);overflow:hidden;margin-bottom:10px;
+}
+.card-head{
+  display:flex;align-items:center;gap:10px;padding:0.9rem 1.1rem;
+  cursor:pointer;-webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;user-select:none;min-height:52px;
+}
+.card-head:active{background:var(--sur2);}
+.card-body{display:none;border-top:1px solid var(--bor);padding:1.1rem;background:var(--sur2);}
+.card.open .card-body{display:block;}
+.card-arrow{
+  font-size:14px;color:var(--mut);transition:transform 0.22s;flex-shrink:0;
+  width:26px;height:26px;border-radius:50%;
+  border:1px solid var(--bor);display:flex;align-items:center;justify-content:center;
+}
+.card.open .card-arrow{transform:rotate(180deg);}
+
+/* ── NOTE BOXES ── */
+.note{
+  border-radius:6px;padding:0.65rem 0.9rem;font-size:13px;
+  line-height:1.65;margin-top:0.65rem;
+}
+.note strong{font-weight:600;}
+.note-grn{background:var(--acl);border-left:2px solid var(--acc);color:var(--acm);}
+.note-red{background:var(--redl);border-left:2px solid var(--red);color:#E09090;}
+.note-gold{background:var(--goldl);border-left:2px solid var(--gold);color:#D4B060;}
+.note-blue{background:var(--bluel);border-left:2px solid var(--blue);color:#8AB0E0;}
+.note-amb{background:var(--ambl);border-left:2px solid var(--amber);color:#D4A060;}
+
+/* ── SECTION WRAPPER ── */
+.module-wrap{max-width:720px;margin:0 auto;padding:1.25rem 1rem;}
+
+/* ── TABLES ── */
+table{width:100%;border-collapse:collapse;margin-bottom:0.85rem;}
+th{
+  font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--mut);text-align:left;padding:6px 8px;border-bottom:1px solid var(--bor2);
+}
+td{padding:7px 8px;border-bottom:1px solid var(--bor);vertical-align:middle;font-size:13px;color:var(--txt);}
+tr:last-child td{border-bottom:none;}
+
+/* ── INPUTS ── */
+.wi{
+  width:88px;padding:5px 8px;border:1px solid var(--bor2);border-radius:6px;
+  font-family:'Barlow',sans-serif;font-size:14px;font-weight:500;
+  color:var(--acm);background:var(--acl);outline:none;text-align:center;
+  -webkit-appearance:none;
+}
+.wi:focus{border-color:var(--acm);}
+.wi::placeholder{color:rgba(74,138,106,0.4);font-weight:300;}
+.na{
+  width:100%;padding:8px 10px;border:1px solid var(--bor2);border-radius:6px;
+  font-family:'Barlow',sans-serif;font-size:13px;font-weight:300;
+  color:var(--txt);background:var(--sur);outline:none;resize:vertical;min-height:56px;
+}
+.na:focus{border-color:var(--acm);}
+
+/* ── LABELS ── */
+.fl{
+  font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+  color:var(--mut);margin-bottom:5px;display:block;
+}
+.fr{margin-bottom:0.8rem;}
+.tc{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem;}
+@media(max-width:480px){.tc{grid-template-columns:1fr;}}
+.ad{
+  font-size:12px;color:var(--mut);background:var(--sur2);
+  border:1px solid var(--bor);border-radius:5px;
+  padding:4px 9px;display:inline-block;
+}
+
+/* ── MADPLAN ── */
+.header{background:var(--sur);border-bottom:1px solid var(--bor);padding:1.5rem 1.25rem 1.25rem;}
+.header-label{font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--acm);margin-bottom:0.5rem;}
+.header-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,8vw,3.5rem);line-height:0.9;color:var(--txt);margin-bottom:0.4rem;}
+.header-sub{font-size:13px;color:var(--mut);}
+.macro-summary{background:var(--sur2);border-bottom:1px solid var(--bor);padding:1rem 1.25rem;}
+.macro-summary-title{font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--mut);margin-bottom:0.75rem;}
+.macro-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:7px;}
+.macro-card{border-radius:8px;padding:0.8rem 0.9rem;display:flex;flex-direction:column;gap:3px;}
+.macro-label{font-size:9px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;}
+.macro-val{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;line-height:1;}
+.macro-unit{font-size:11px;opacity:0.65;margin-top:1px;}
+.macro-kcal{background:var(--acl);color:var(--acm);}
+.macro-protein{background:var(--bluel);color:var(--blue);}
+.macro-carb{background:var(--goldl);color:var(--gold);}
+.macro-fat{background:var(--pinkl);color:var(--pink);}
+.macro-fiber{background:var(--ambl);color:var(--amber);}
+.micro-bar{background:var(--sur);border-bottom:1px solid var(--bor);padding:0.9rem 1.25rem;}
+.micro-bar-title{font-size:10px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--mut);margin-bottom:0.6rem;}
+.micro-pills{display:flex;flex-wrap:wrap;gap:6px;}
+.micro-pill{
+  background:var(--sur2);border:1px solid var(--bor2);border-radius:20px;
+  padding:4px 10px;font-size:12px;color:var(--txt);display:flex;align-items:center;gap:4px;
+}
+.micro-pill strong{font-weight:500;color:var(--acm);}
+.meals{max-width:720px;margin:1.1rem auto;padding:0 1rem;display:flex;flex-direction:column;gap:10px;}
+.meal-card{background:var(--sur);border-radius:12px;border:1px solid var(--bor);overflow:hidden;}
+.meal-header{
+  display:flex;align-items:center;gap:10px;padding:0.9rem 1.1rem;
+  cursor:pointer;-webkit-tap-highlight-color:transparent;
+  touch-action:manipulation;user-select:none;min-height:56px;
+}
+.meal-header:active{background:var(--sur2);}
+.meal-num{
+  width:38px;height:38px;border-radius:9px;background:var(--acl);color:var(--acm);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:18px;flex-shrink:0;
+}
+.meal-info{flex:1;min-width:0;}
+.meal-name{font-size:15px;font-weight:500;color:var(--txt);margin-bottom:3px;line-height:1.3;}
+.meal-tags{display:flex;gap:5px;flex-wrap:wrap;}
+.meal-tag{font-size:10px;padding:2px 7px;border-radius:10px;font-weight:500;}
+.tag-protein{background:var(--bluel);color:var(--blue);}
+.tag-carb{background:var(--goldl);color:var(--gold);}
+.tag-fat{background:var(--pinkl);color:var(--pink);}
+.tag-fiber{background:var(--ambl);color:var(--amber);}
+.meal-right{display:flex;align-items:center;gap:8px;flex-shrink:0;}
+.meal-kcal{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--acm);}
+.meal-arrow{
+  width:26px;height:26px;border-radius:50%;background:var(--acl);
+  color:var(--acm);display:flex;align-items:center;justify-content:center;
+  font-size:14px;transition:transform 0.22s;flex-shrink:0;
+}
+.meal-card.open .meal-arrow{transform:rotate(180deg);}
+.meal-body{display:none;border-top:1px solid var(--bor);padding:1.1rem;background:var(--sur2);}
+.meal-card.open .meal-body{display:block;}
+.ingredient-list{list-style:none;margin-bottom:0.85rem;}
+.ingredient-row{
+  display:flex;justify-content:space-between;align-items:baseline;
+  padding:7px 0;border-bottom:1px solid var(--bor);font-size:13px;gap:8px;
+}
+.ingredient-row:last-child{border-bottom:none;}
+.ing-name{color:var(--txt);flex:1;}
+.ing-amount{color:var(--mut);font-size:12px;text-align:right;flex-shrink:0;}
+.meal-macros{display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:0.75rem;}
+.mm{border-radius:7px;padding:6px 5px;text-align:center;}
+.mm-label{font-size:9px;text-transform:uppercase;letter-spacing:0.06em;opacity:0.65;}
+.mm-val{font-size:13px;font-weight:500;margin-top:1px;}
+.totals-card{max-width:720px;margin:0 auto 1.5rem;padding:0 1rem;}
+.totals-inner{background:var(--acc);border-radius:12px;padding:1.25rem 1.5rem;}
+.totals-title{font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(232,228,220,0.55);margin-bottom:0.85rem;}
+.totals-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(80px,1fr));gap:10px;}
+.total-label{font-size:10px;color:rgba(232,228,220,0.55);margin-bottom:2px;}
+.total-val{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;font-weight:400;color:var(--txt);}
+.total-unit{font-size:11px;color:rgba(232,228,220,0.5);}
+.install-bar{display:none;}
+
+/* ── STYRKE TRACKER ── */
+.bsec{background:var(--sur2);padding:1rem 1.25rem;border-bottom:1px solid var(--bor);}
+.binn{max-width:720px;margin:0 auto;}
+.btop{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;margin-bottom:0.85rem;}
+.btitl{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--acm);letter-spacing:0.05em;}
+.bsubt{font-size:11px;color:var(--mut);margin-top:2px;}
+.bgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:7px;}
+.bcard{background:var(--sur);border-radius:8px;padding:0.7rem 0.85rem;border:1px solid var(--bor);}
+.bcnm{font-size:9.5px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:var(--mut);margin-bottom:0.45rem;}
+.bcls{display:flex;gap:4px;margin-bottom:3px;}
+.bclb{display:flex;gap:4px;font-size:8.5px;color:var(--mut2);}
+.bclb span,.bcls span{flex:1;text-align:center;}
+.lb{flex:1;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:0.95rem;border-radius:3px;padding:2px 3px;color:var(--mut);background:var(--sur2);}
+.lg{flex:1;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:0.95rem;border-radius:3px;padding:2px 3px;color:var(--acm);background:var(--acl);}
+.lgr{flex:1;text-align:center;font-family:'Bebas Neue',sans-serif;font-size:0.95rem;border-radius:3px;padding:2px 3px;color:var(--gold);background:var(--goldl);}
+.winb{width:72px;padding:4px 8px;border:1px solid var(--bor2);border-radius:6px;font-family:'Barlow',sans-serif;font-size:14px;font-weight:500;color:var(--acm);background:var(--acl);outline:none;text-align:center;}
+.winb:focus{border-color:var(--acm);}
+.winb::placeholder{color:rgba(74,138,106,0.4);}
+.adsp{font-size:11px;color:var(--mut);font-style:italic;}
+.savebtn{display:none;}
+.prog{max-width:720px;margin:0 auto;padding:1.25rem 1rem;}
+.view{display:block;}
+.sticky{
+  position:sticky;top:54px;z-index:10;
+  background:rgba(12,16,13,0.96);
+  border-bottom:1px solid var(--bor);
+  padding:0.55rem 1.25rem;
+  display:flex;gap:6px;align-items:center;flex-wrap:wrap;
+  backdrop-filter:blur(12px);
+}
+.nb{
+  padding:5px 12px;background:transparent;border:1px solid var(--bor2);
+  color:var(--mut);font-family:'Barlow Condensed',sans-serif;font-size:11px;
+  font-weight:600;letter-spacing:0.07em;text-transform:uppercase;
+  border-radius:3px;cursor:pointer;transition:all 0.18s;white-space:nowrap;
+}
+.nb.active{background:var(--acc);border-color:var(--acc);color:var(--txt);}
+.sstatus{margin-left:auto;font-size:11px;color:var(--acm);font-weight:500;}
+.blk{margin-top:1.5rem;margin-bottom:0.6rem;}
+.blk:first-child{margin-top:0;}
+.bh{display:flex;align-items:center;gap:10px;margin-bottom:0.5rem;}
+.blet{font-family:'Bebas Neue',sans-serif;font-size:2rem;line-height:1;flex-shrink:0;width:32px;}
+.bif{flex:1;}
+.bna{font-size:10px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--mut);}
+.bsub{font-size:13px;font-weight:500;color:var(--txt);}
+.bti{font-family:'Bebas Neue',sans-serif;font-size:1rem;flex-shrink:0;}
+.bln{height:2px;border-radius:1px;margin-bottom:0.6rem;}
+.cp .blet{color:rgba(200,144,80,0.2);}.cp .bti{color:var(--amber);}.cp .bln{background:var(--amber);}
+.ca .blet{color:rgba(45,90,61,0.25);}.ca .bti{color:var(--acm);}.ca .bln{background:var(--acm);}
+.cb .blet{color:rgba(90,138,200,0.2);}.cb .bti{color:var(--blue);}.cb .bln{background:var(--blue);}
+.cc .blet{color:rgba(160,80,112,0.2);}.cc .bti{color:var(--pink);}.cc .bln{background:var(--pink);}
+.cd .blet{color:rgba(200,90,90,0.2);}.cd .bti{color:var(--red);}.cd .bln{background:var(--red);}
+.ce .blet{color:rgba(74,138,106,0.15);}.ce .bti{color:var(--acm);}.ce .bln{background:rgba(74,138,106,0.4);}
+.copt .blet{color:rgba(90,138,200,0.12);}.copt .bti{color:rgba(90,138,200,0.5);}.copt .bln{background:rgba(90,138,200,0.2);}
+.ec{background:var(--sur);border-radius:9px;border:1px solid var(--bor);margin-bottom:8px;overflow:hidden;}
+.eh{display:flex;align-items:center;gap:9px;padding:0.8rem 1rem;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;user-select:none;min-height:50px;}
+.eh:active{background:var(--sur2);}
+.es{width:4px;border-radius:2px;align-self:stretch;flex-shrink:0;}
+.sp{background:var(--amber);}.sa{background:var(--acm);}.sb{background:var(--blue);}
+.sc{background:var(--pink);}.sd{background:var(--red);}.se{background:rgba(74,138,106,0.5);}.sopt{background:rgba(90,138,200,0.4);}
+.en{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;line-height:1;color:rgba(232,228,220,0.15);flex-shrink:0;width:24px;text-align:center;}
+.ei{flex:1;min-width:0;}
+.enm{font-size:14px;font-weight:500;color:var(--txt);margin-bottom:2px;}
+.emt{font-size:11px;color:var(--mut);}
+.arr{font-size:14px;color:var(--mut);transition:transform 0.22s;flex-shrink:0;width:24px;height:24px;border-radius:50%;border:1px solid var(--bor);display:flex;align-items:center;justify-content:center;}
+.ec.open .arr{transform:rotate(180deg);}
+.ebody{display:none;border-top:1px solid var(--bor);padding:1rem;background:var(--sur2);}
+.ec.open .ebody{display:block;}
+.clbl{font-size:10px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--mut);margin-bottom:0.6rem;display:block;}
+.dur{background:var(--acl);border-radius:7px;padding:0.55rem 0.8rem;margin-bottom:0.8rem;display:flex;align-items:center;gap:8px;}
+.dur-t{font-size:13px;color:var(--acm);font-weight:500;}
+.dur-s{font-size:11px;color:var(--acm);opacity:0.7;}
+.n-grn{background:var(--acl);border-left:2px solid var(--acc);color:var(--acm);}
+.n-teal{background:rgba(45,90,61,0.1);border-left:2px solid var(--acm);color:var(--acm);}
+.n-red{background:var(--redl);border-left:2px solid var(--red);color:#E09090;}
+.n-amb{background:var(--ambl);border-left:2px solid var(--amber);color:#D4A060;}
+.n-blu{background:var(--bluel);border-left:2px solid var(--blue);color:#8AB0E0;}
+.n-gold{background:var(--goldl);border-left:2px solid var(--gold);color:#D4B060;}
+.n-sof{background:var(--acl);border-left:2px solid var(--acm);color:var(--acm);}
+.n-skade{background:var(--redl);border-left:2px solid var(--red);color:#E09090;}
+.nb-block{border-radius:6px;padding:0.6rem 0.85rem;font-size:12px;line-height:1.65;margin-top:0.5rem;}
+.nb-block strong{font-weight:600;}
+.pn{background:var(--acl);border-left:2px solid var(--acc);border-radius:0 5px 5px 0;padding:0.55rem 0.8rem;font-size:12px;color:var(--acm);line-height:1.65;margin-top:0.6rem;}
+.pn strong{font-weight:600;}
+.sn{background:var(--redl);border-left:2px solid var(--red);border-radius:0 5px 5px 0;padding:0.55rem 0.8rem;font-size:12px;color:#E09090;line-height:1.65;margin-top:0.5rem;}
+.sn strong{font-weight:600;}
+.on{background:var(--bluel);border-left:2px solid var(--blue);border-radius:0 5px 5px 0;padding:0.55rem 0.8rem;font-size:12px;color:#8AB0E0;line-height:1.65;margin-top:0.5rem;}
+.hb{background:none;border:1px solid var(--bor);border-radius:5px;padding:3px 9px;font-size:10px;font-weight:600;color:var(--mut);cursor:pointer;letter-spacing:0.06em;text-transform:uppercase;margin-top:0.6rem;}
+.hb:hover{border-color:var(--acm);color:var(--acm);}
+.hl{display:none;margin-top:0.4rem;background:var(--sur);border-radius:5px;border:1px solid var(--bor);overflow:hidden;}
+.hl.show{display:block;}
+.hi2{padding:6px 10px;border-bottom:1px solid var(--bor);font-size:11px;display:flex;justify-content:space-between;gap:6px;flex-wrap:wrap;}
+.hi2:last-child{border-bottom:none;}
+.hid{color:var(--txt);font-weight:500;}.hiw{color:var(--acm);font-weight:500;}
+.prog-box{background:var(--acl);border-radius:5px;padding:0.5rem 0.7rem;font-size:11px;color:var(--acm);margin-top:0.5rem;line-height:1.6;}
+.ex-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.85rem;}
+@media(max-width:480px){.ex-grid{grid-template-columns:1fr;}}
+.blabel{font-size:10px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--mut);margin-bottom:6px;margin-top:8px;display:block;}
+.blabel:first-child{margin-top:0;}
+.tm{font-size:11px;color:var(--mut);padding:4px 0;}
+
+/* ── MOBILITY ── */
+.hero{background:var(--sur);border-bottom:1px solid var(--bor);padding:2rem 1.25rem 1.5rem;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%, rgba(74,138,106,0.12) 0%, transparent 70%);pointer-events:none;}
+.hi{position:relative;z-index:1;}
+.eye{font-size:10px;font-weight:600;letter-spacing:0.18em;text-transform:uppercase;color:var(--acm);margin-bottom:0.4rem;display:flex;align-items:center;gap:8px;}
+.eye::before{content:'';width:20px;height:1px;background:var(--acm);}
+.htit{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.4rem,8vw,3.5rem);line-height:0.9;letter-spacing:0.02em;color:var(--txt);margin-bottom:0.5rem;}
+.htit .g{color:var(--acm);}
+.hsub{font-size:13px;color:var(--mut);line-height:1.6;}
+.hpills{display:flex;flex-wrap:wrap;gap:6px;margin-top:0.85rem;}
+.hp{background:var(--sur2);border:1px solid var(--bor);border-radius:3px;padding:4px 10px;font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--mut);}
+.hp.gold{border-color:rgba(200,168,75,0.3);color:var(--gold);}
+.prog-mob{max-width:720px;margin:1.25rem auto 0;padding:0 1rem;}
+.ex{background:var(--sur);border-radius:12px;border:1px solid var(--bor);margin-bottom:12px;overflow:hidden;transition:border-color 0.2s;}
+.ex:hover{border-color:var(--bor2);}
+.ex-head{display:flex;align-items:flex-start;gap:10px;padding:0.9rem 1.1rem;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;user-select:none;min-height:56px;}
+.ex-head:active{background:var(--sur2);}
+.ex-stripe{width:4px;border-radius:2px;align-self:stretch;flex-shrink:0;margin-top:3px;}
+.ex-num{font-family:'Bebas Neue',sans-serif;font-size:1.5rem;line-height:1;color:rgba(232,228,220,0.12);flex-shrink:0;width:28px;text-align:center;margin-top:2px;}
+.ex-info{flex:1;min-width:0;}
+.ex-name{font-size:14px;font-weight:500;color:var(--txt);margin-bottom:3px;}
+.ex-sub{font-size:11px;color:var(--mut);margin-bottom:5px;}
+.tags{display:flex;gap:5px;flex-wrap:wrap;}
+.tag{font-size:10px;font-weight:600;padding:2px 7px;border-radius:10px;}
+.ex-right{display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex-shrink:0;}
+.ex-time{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;line-height:1;}
+.arr2{font-size:14px;color:var(--mut);transition:transform 0.22s;width:24px;height:24px;border-radius:50%;border:1px solid var(--bor);display:flex;align-items:center;justify-content:center;}
+.ex.open .arr2{transform:rotate(180deg);}
+.ex-body{display:none;border-top:1px solid var(--bor);background:var(--sur2);}
+.ex.open .ex-body{display:block;}
+.ex-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+@media(max-width:540px){.ex-grid{grid-template-columns:1fr;}}
+.ex-col{padding:1rem 1.1rem;}
+.ex-col+.ex-col{border-left:1px solid var(--bor);}
+@media(max-width:540px){.ex-col+.ex-col{border-left:none;border-top:1px solid var(--bor);}}
+.steps{list-style:none;display:flex;flex-direction:column;gap:7px;margin-bottom:0.85rem;}
+.step{display:flex;gap:8px;font-size:14px;color:var(--txt);line-height:1.6;}
+.step-n{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--acm);flex-shrink:0;width:18px;line-height:1.4;}
+.yt{display:inline-flex;align-items:center;gap:5px;border-radius:6px;padding:6px 11px;font-size:11px;font-weight:600;text-decoration:none;transition:opacity 0.2s;margin-top:0.25rem;width:fit-content;}
+.yt:hover{opacity:0.82;}
+.yt-red{background:#CC0000;color:#fff;}
+.yt-teal{background:var(--acm);color:#fff;}
+.yts{display:flex;flex-direction:column;gap:6px;}
+.summary{background:var(--sur);border-top:1px solid var(--bor);padding:1.25rem 1.5rem;margin-top:1rem;}
+.st{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--acm);margin-bottom:0.85rem;letter-spacing:0.05em;}
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:8px;}
+.si{background:var(--sur2);border-radius:7px;padding:0.75rem 0.9rem;border-left:2px solid var(--acc);}
+.sl{font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mut);margin-bottom:3px;}
+.sv{font-size:12px;color:var(--txt);line-height:1.55;}
+.c1 .ex-stripe,.c1 .ex-time{background:var(--acm);color:var(--acm);}
+.c1 .ex-time{background:transparent;}
+.c2 .ex-stripe{background:var(--acc);}.c2 .ex-time{color:var(--acc);}
+.c3 .ex-stripe{background:var(--blue);}.c3 .ex-time{color:var(--blue);}
+.c4 .ex-stripe{background:var(--amber);}.c4 .ex-time{color:var(--amber);}
+.c5 .ex-stripe{background:var(--pink);}.c5 .ex-time{color:var(--pink);}
+.c6 .ex-stripe{background:rgba(90,138,200,0.6);}.c6 .ex-time{color:rgba(90,138,200,0.8);}
+.c7 .ex-stripe{background:var(--gold);}.c7 .ex-time{color:var(--gold);}
+.tag-hip{background:var(--pinkl);color:var(--pink);}
+.tag-run{background:var(--acl);color:var(--acm);}
+.tag-ryg{background:var(--bluel);color:var(--blue);}
+.tag-hof{background:var(--redl);color:var(--red);}
+.tag-flex{background:var(--ambl);color:var(--amber);}
+.tag-core{background:rgba(90,138,200,0.12);color:rgba(90,138,200,0.8);}
+.tag-main{background:var(--acl);color:var(--acm);}
+.nb-note{border-radius:6px;padding:0.6rem 0.85rem;font-size:12px;line-height:1.65;margin-top:0.5rem;}
+.nb-note strong{font-weight:600;}
+.bsec-mob{background:var(--sur2);padding:1rem 1.25rem;border-bottom:1px solid var(--bor);}
+.bhist-btn{background:none;border:1px solid var(--bor);border-radius:5px;padding:3px 9px;font-size:10px;font-weight:600;color:var(--mut);cursor:pointer;letter-spacing:0.06em;text-transform:uppercase;margin-top:0.6rem;width:100%;}
+.bhist{display:none;margin-top:0.45rem;background:var(--sur);border-radius:5px;border:1px solid var(--bor);overflow:hidden;}
+.bhist.show{display:block;}
+.bhi{padding:5px 8px;border-bottom:1px solid var(--bor);font-size:10px;display:flex;justify-content:space-between;gap:6px;}
+.bhi:last-child{border-bottom:none;}
+.bhid{color:var(--txt);font-weight:500;}.bhiv{color:var(--acm);font-size:9.5px;}
+
+/* ── MENTAL ── */
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%, rgba(200,168,75,0.08) 0%, transparent 70%), radial-gradient(ellipse 40% 40% at 90% 80%, rgba(74,138,106,0.04) 0%, transparent 60%);}
+.hero-eyebrow{font-size:10px;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;position:relative;display:flex;align-items:center;gap:10px;}
+.hero-eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(3.5rem,12vw,6rem);line-height:0.88;letter-spacing:0.02em;margin-bottom:1rem;position:relative;color:var(--txt);}
+.hero-title .line2{color:var(--gold);font-family:'Instrument Serif',serif;font-style:italic;font-size:clamp(2.8rem,10vw,5rem);}
+.hero-desc{font-size:14px;color:var(--mut);line-height:1.7;max-width:480px;position:relative;margin-bottom:1.25rem;}
+.hero-pills{display:flex;flex-wrap:wrap;gap:6px;position:relative;}
+.pill{background:var(--sur2);border:1px solid var(--bor);border-radius:2px;padding:4px 10px;font-size:10px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--mut);}
+.pill.gold{border-color:rgba(200,168,75,0.3);color:var(--gold);}
+.identity-card{background:var(--goldl);border:1px solid rgba(200,168,75,0.2);border-radius:8px;padding:1.25rem;margin-bottom:1.25rem;position:relative;overflow:hidden;}
+.identity-card::before{content:'"';position:absolute;top:-10px;right:14px;font-family:'Instrument Serif',serif;font-size:7rem;color:rgba(200,168,75,0.08);line-height:1;}
+.identity-text{font-family:'Instrument Serif',serif;font-size:1.3rem;line-height:1.5;color:var(--gold);font-style:italic;position:relative;}
+.identity-sub{font-size:11px;color:var(--mut);margin-top:0.5rem;letter-spacing:0.06em;}
+.protocol-block{background:var(--sur);border:1px solid var(--bor);border-radius:8px;overflow:hidden;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;margin-bottom:8px;}
+.protocol-block:active{opacity:0.85;}
+.pb-head{display:flex;align-items:center;gap:10px;padding:0.9rem 1rem;min-height:52px;}
+.pb-time{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;line-height:1;flex-shrink:0;width:52px;}
+.pb-divider{width:1px;height:34px;background:var(--bor);flex-shrink:0;}
+.pb-info{flex:1;min-width:0;}
+.pb-title{font-size:14px;font-weight:500;color:var(--txt);margin-bottom:2px;}
+.pb-meta{font-size:11px;color:var(--mut);}
+.pb-badge{font-size:9px;font-weight:600;letter-spacing:0.06em;padding:2px 7px;border-radius:2px;text-transform:uppercase;flex-shrink:0;}
+.pb-arrow{font-size:13px;color:var(--mut);transition:transform 0.22s;flex-shrink:0;width:22px;height:22px;border-radius:50%;border:1px solid var(--bor);display:flex;align-items:center;justify-content:center;}
+.protocol-block.open .pb-arrow{transform:rotate(180deg);}
+.pb-body{display:none;border-top:1px solid var(--bor);padding:1rem;background:var(--sur2);}
+.protocol-block.open .pb-body{display:block;}
+.pb-steps{list-style:none;display:flex;flex-direction:column;gap:9px;margin-bottom:0.85rem;}
+.pb-step{display:flex;gap:8px;font-size:14px;color:var(--txt);line-height:1.6;}
+.pb-step-n{font-family:'Bebas Neue',sans-serif;font-size:1rem;color:var(--gold);flex-shrink:0;width:20px;line-height:1.4;}
+.pb-note{border-radius:6px;padding:0.6rem 0.85rem;font-size:12px;line-height:1.65;margin-top:0.5rem;}
+.pb-note strong{font-weight:600;}
+.tool-card{background:var(--sur);border:1px solid var(--bor);border-radius:8px;padding:1rem 1.1rem;cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;margin-bottom:8px;}
+.tool-card:active{opacity:0.85;}
+.tc-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:0;}
+.tc-left{flex:1;}
+.tc-origin{font-size:9.5px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--mut);margin-bottom:3px;}
+.tc-name{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;letter-spacing:0.04em;line-height:1;margin-bottom:3px;color:var(--txt);}
+.tc-tagline{font-size:12px;color:var(--mut);line-height:1.4;}
+.tc-arrow{font-size:13px;color:var(--mut);transition:transform 0.22s;flex-shrink:0;margin-top:2px;}
+.tool-card.open .tc-arrow{transform:rotate(180deg);}
+.tc-body{display:none;border-top:1px solid var(--bor);padding-top:0.85rem;margin-top:0.85rem;font-size:13px;color:var(--mut);line-height:1.7;}
+.tool-card.open .tc-body{display:block;}
+.tc-apply{margin-top:0.65rem;font-size:12px;color:var(--gold);background:var(--goldl);border-radius:5px;padding:0.5rem 0.7rem;line-height:1.6;}
+.tc-apply strong{font-weight:600;}
+.t-gold .pb-time{color:var(--gold);}.t-gold .pb-badge{background:var(--goldl);color:var(--gold);border:1px solid rgba(200,168,75,0.2);}
+.t-grn .pb-time{color:var(--acm);}.t-grn .pb-badge{background:var(--acl);color:var(--acm);border:1px solid rgba(45,90,61,0.2);}
+.t-red .pb-time{color:var(--red);}.t-red .pb-badge{background:var(--redl);color:#E09090;border:1px solid rgba(200,90,90,0.2);}
+.t-blu .pb-time{color:var(--blue);}.t-blu .pb-badge{background:var(--bluel);color:#8AB0E0;border:1px solid rgba(90,138,200,0.2);}
+.t-mut .pb-time{color:var(--mut);}.t-mut .pb-badge{background:var(--sur2);color:var(--mut);border:1px solid var(--bor);}
+.victory-days{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;}
+.vd-label{font-size:8px;text-align:center;color:var(--mut);letter-spacing:0.04em;}
+.victory-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;margin-bottom:5px;}
+.v-day{aspect-ratio:1;border-radius:4px;border:1px solid var(--bor);background:var(--sur);cursor:pointer;-webkit-tap-highlight-color:transparent;touch-action:manipulation;transition:all 0.18s;min-height:36px;}
+.v-day.won{background:var(--acm);border-color:var(--acm);}
+.v-day.lost{background:var(--redl);border-color:rgba(200,90,90,0.3);}
+.victory-legend{display:flex;gap:14px;margin-top:0.65rem;font-size:12px;color:var(--mut);}
+.vl-item{display:flex;align-items:center;gap:5px;}
+.vl-dot{width:10px;height:10px;border-radius:2px;}
+.quote-block{background:var(--sur2);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:0.9rem 1.1rem;margin:1rem 0;}
+.quote-text{font-family:'Instrument Serif',serif;font-style:italic;font-size:1.05rem;line-height:1.6;color:var(--txt);margin-bottom:0.35rem;}
+.quote-attr{font-size:11px;color:var(--mut);letter-spacing:0.08em;}
+.protocol-grid{display:flex;flex-direction:column;gap:8px;}
+.tools-grid{display:flex;flex-direction:column;gap:8px;}
+.section{max-width:720px;margin:0 auto;padding:1.75rem 1.25rem;border-bottom:1px solid var(--bor);}
+.section:last-child{border-bottom:none;}
+.sec-label{font-size:9.5px;font-weight:700;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:1.1rem;display:flex;align-items:center;gap:8px;}
+.sec-label::after{content:'';flex:1;height:1px;background:var(--bor);}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:1.9rem;letter-spacing:0.05em;margin-bottom:0.65rem;line-height:1;color:var(--txt);}
+.footer-men{background:var(--sur);border-top:1px solid var(--bor);padding:1.25rem;max-width:720px;margin:0 auto;}
+.footer-title{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--acm);margin-bottom:0.65rem;letter-spacing:0.05em;}
+.fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:8px;}
+.fi{background:var(--sur2);border-radius:6px;padding:0.65rem 0.85rem;border-left:2px solid var(--acc);}
+.fi-l{font-size:9px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mut);margin-bottom:3px;}
+.fi-v{font-size:12px;color:var(--txt);line-height:1.5;}
+/* footer for mobility */
+.footer{background:var(--sur);border-top:1px solid var(--bor);padding:1.25rem 2rem;margin-top:0;}
+.ft{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--acm);margin-bottom:0.75rem;}
+.sg .si .sl{font-size:9.5px;letter-spacing:0.1em;text-transform:uppercase;color:var(--mut);margin-bottom:3px;}
+.sg .si .sv{font-size:12px;color:var(--txt);line-height:1.5;}
+
+</style>
+</head>
+<body>
+
+<!-- FIXED HEADER -->
+<header class="app-header hidden" id="app-header">
+  <span class="header-module" id="header-title"></span>
+  <div class="header-logo-small"><svg width="160" height="52" viewBox="0 0 340 110" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(40,55)">
+    <polygon points="0,-37 32,-18.5 32,18.5 0,37 -32,18.5 -32,-18.5" fill="none" stroke="#4A8A6A" stroke-width="1.6"/>
+    <polygon points="0,-26 22,-13 22,13 0,26 -22,13 -22,-13" fill="#2D5A3D"/>
+    <text x="0" y="10" text-anchor="middle" font-family="Bebas Neue,sans-serif" font-size="25" fill="#F0EDE6">B</text>
+  </g>
+  <line x1="82" y1="14" x2="82" y2="96" stroke="#2D5A3D" stroke-width="0.7" opacity="0.5"/>
+  <g transform="translate(92,18)">
+    <text x="0" y="0" font-family="Bebas Neue,sans-serif" font-size="10" fill="#4A8A6A" letter-spacing="3">BRØNS</text>
+    <text x="0" y="20" font-family="Bebas Neue,sans-serif" font-size="20" fill="#E8E4DC" letter-spacing="2">HUMAN PERFORMANCE</text>
+    <line x1="0" y1="27" x2="226" y2="27" stroke="#2D5A3D" stroke-width="0.8"/>
+    <text x="0" y="40" font-family="Barlow Condensed,sans-serif" font-size="8" font-weight="500" fill="#4A8A6A" letter-spacing="4">MISSION READY</text>
+  </g>
+</svg></div>
+</header>
+
+<!-- HOME / SPLASH -->
+<div class="view-panel active" id="view-home">
+  <div class="splash">
+    <div class="splash-content">
+      <div class="splash-logo"><svg width="300" height="96" viewBox="0 0 600 192" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(72,96)">
+    <polygon points="0,-66 57,-33 57,33 0,66 -57,33 -57,-33" fill="none" stroke="#4A8A6A" stroke-width="2.5"/>
+    <polygon points="0,-46 40,-23 40,23 0,46 -40,23 -40,-23" fill="#2D5A3D"/>
+    <text x="0" y="18" text-anchor="middle" font-family="Bebas Neue,sans-serif" font-size="46" fill="#F0EDE6">B</text>
+  </g>
+  <line x1="144" y1="24" x2="144" y2="168" stroke="#2D5A3D" stroke-width="1" opacity="0.45"/>
+  <g transform="translate(158,30)">
+    <text x="0" y="0" font-family="Bebas Neue,sans-serif" font-size="14" fill="#4A8A6A" letter-spacing="5">BRØNS</text>
+    <text x="0" y="36" font-family="Bebas Neue,sans-serif" font-size="34" fill="#E8E4DC" letter-spacing="3">HUMAN</text>
+    <text x="0" y="72" font-family="Bebas Neue,sans-serif" font-size="34" fill="#E8E4DC" letter-spacing="3">PERFORMANCE</text>
+    <line x1="0" y1="82" x2="388" y2="82" stroke="#2D5A3D" stroke-width="1.2"/>
+    <text x="0" y="102" font-family="Barlow Condensed,sans-serif" font-size="12" font-weight="500" fill="#4A8A6A" letter-spacing="6">MISSION READY</text>
+  </g>
+</svg></div>
+      <p class="splash-tagline">Din platform til peak performance</p>
+      <div class="splash-grid">
+        <div class="splash-card" onclick="showView('madplan')" ontouchend="st(event,'madplan')">
+          <div class="splash-card-icon">🥗</div>
+          <div class="splash-card-label">Madplan</div>
+          <div class="splash-card-sub">2.500 kcal · GF · 5 måltider</div>
+        </div>
+        <div class="splash-card" onclick="showView('tracker')" ontouchend="st(event,'tracker')">
+          <div class="splash-card-icon">💪</div>
+          <div class="splash-card-label">Styrke</div>
+          <div class="splash-card-sub">Center + hjemme · Baseline</div>
+        </div>
+        <div class="splash-card" onclick="showView('mobility')" ontouchend="st(event,'mobility')">
+          <div class="splash-card-icon">🧘</div>
+          <div class="splash-card-label">Mobility</div>
+          <div class="splash-card-sub">20 min · 7 øvelser · Aften</div>
+        </div>
+        <div class="splash-card" onclick="showView('mental')" ontouchend="st(event,'mental')">
+          <div class="splash-card-icon">🧠</div>
+          <div class="splash-card-label">Mental</div>
+          <div class="splash-card-sub">10 min · SOF · OODA</div>
+        </div>
+      </div>
+      <div class="splash-date" id="splash-date"></div>
+    </div>
+  </div>
+</div>
+
+<!-- MADPLAN -->
+<div class="view-panel" id="view-madplan">
+
+<div class="install-bar" id="installBar">
+  📱 Gem som app: tryk Del → "Føj til hjemmeskærm" (iOS) eller menuikonet (Android)
+</div>
+
+<div class="header">
+  <p class="header-label">Martin Brøns · Fedttabsfase · Verificeret</p>
+  <h1 class="header-title">Madplan<br>2.500 kcal</h1>
+  <p class="header-sub">Glutenfri · Høj protein · 5 måltider · Kalorier verificeret pr. ingrediens</p>
+</div>
+
+<div class="macro-summary">
+  <div class="macro-summary-title">Daglige makroer</div>
+  <div class="macro-grid">
+    <div class="macro-card macro-kcal"><span class="macro-label">Kalorier</span><span class="macro-val">2.500</span><span class="macro-unit">kcal/dag</span></div>
+    <div class="macro-card macro-protein"><span class="macro-label">Protein</span><span class="macro-val">~160</span><span class="macro-unit">g · 26%</span></div>
+    <div class="macro-card macro-carb"><span class="macro-label">Kulhydrat</span><span class="macro-val">~248</span><span class="macro-unit">g · 40%</span></div>
+    <div class="macro-card macro-fat"><span class="macro-label">Fedt</span><span class="macro-val">~68</span><span class="macro-unit">g · 24%</span></div>
+    <div class="macro-card macro-fiber"><span class="macro-label">Fiber</span><span class="macro-val">~34</span><span class="macro-unit">gram</span></div>
+  </div>
+</div>
+
+<div class="micro-bar">
+  <div class="micro-bar-title">Vigtige mikronutrienter (estimat)</div>
+  <div class="micro-pills">
+    <span class="micro-pill">Calcium <strong>~710 mg</strong></span>
+    <span class="micro-pill">Jern <strong>~11 mg</strong></span>
+    <span class="micro-pill">Kalium <strong>~2.400 mg</strong></span>
+    <span class="micro-pill">Magnesium <strong>~310 mg</strong></span>
+    <span class="micro-pill">C-vitamin <strong>~170 mg</strong></span>
+    <span class="micro-pill">D-vitamin <strong>~1–4 µg</strong></span>
+    <span class="micro-pill">B12 <strong>~3,2 µg</strong></span>
+    <span class="micro-pill">Zink <strong>~8 mg</strong></span>
+    <span class="micro-pill">Folat <strong>~270 µg</strong></span>
+    <span class="micro-pill">Natrium <strong>~1.300 mg</strong></span>
+  </div>
+</div>
+
+<div class="meals">
+
+  <!-- MÅLTID 1 -->
+  <div class="meal-card">
+    <div class="meal-header">
+      <div class="meal-num">1</div>
+      <div class="meal-info">
+        <div class="meal-name">Skyr-skål ELLER Havregrød</div>
+        <div class="meal-tags">
+          <span class="meal-tag tag-protein">Protein</span>
+          <span class="meal-tag tag-carb">Kulhydrat</span>
+        </div>
+      </div>
+      <div class="meal-right">
+        <span class="meal-kcal">~667 kcal</span>
+        <div class="meal-arrow">↓</div>
+      </div>
+    </div>
+    <div class="meal-body">
+      <ul class="ingredient-list">
+        <li class="ingredient-row"><span class="ing-name">Løgismose eller Cheasy skyr, vanilje</span><span class="ing-amount">400g · ~240 kcal</span></li>
+        <li class="ingredient-row"><span class="ing-name">Blåbær (primært) eller jordbær</span><span class="ing-amount">200g · ~80 kcal</span></li>
+        <li class="ingredient-row"><span class="ing-name">Banan</span><span class="ing-amount">1 stk. (~120g) · ~107 kcal</span></li>
+        <li class="ingredient-row"><span class="ing-name">Mandler</span><span class="ing-amount">20g · ~120 kcal</span></li>
+        <li class="ingredient-row"><span class="ing-name">Latte (letmælk 2,5 dl)</span><span class="ing-amount">~120 kcal</span></li>
+      </ul>
+      <div class="meal-macros">
+        <div class="mm macro-protein"><div class="mm-label">Protein</div><div class="mm-val">52g</div></div>
+        <div class="mm macro-carb"><div class="mm-label">Kulhydrat</div><div class="mm-val">65g</div></div>
+        <div class="mm macro-fat"><div class="mm-label">Fedt</div><div class="mm-val">12g</div></div>
+        <div class="mm macro-fiber"><div class="mm-label">Fiber</div><div class="mm-val">8g</div></div>
+      </div>
+      <div class="note"><strong>Skyr-version:</strong> Casein-protein fra skyr mætter længe. Banan giver kalium — godt inden træning. Ca. 52g protein.</div>
+      <div class="note" style="margin-top:8px"><strong>Alternativ — Havregrød:</strong> 80g <u>GF-certificeret</u> havregryn + vand/laktosefri mælk + 1 banan + 1 spsk honning + 20g mandler + latte. ~560 kcal · ~15g protein · ~85g KH. OBS: Tjek at havregryn er GF-certificeret — havre er naturligt GF men kan være forurenet ved produktion.</div>
+    </div>
+  </div>
+
+  <!-- MÅLTID 2 -->
+  <div class="meal-card">
+    <div class="meal-header">
+      <div class="meal-num">2</div>
+      <div class="meal-info">
+        <div class="meal-name">Frugt & Grønt snack</div>
+        <div class="meal-tags">
+          <span class="meal-tag tag-carb">Kulhydrat</span>
+          <span class="meal-tag tag-fiber">Fiber</span>
+        </div>
+      </div>
+      <div class="meal-right">
+        <span class="meal-kcal">~250 kcal</span>
+        <div class="meal-arrow">↓</div>
+      </div>
+    </div>
+    <div class="meal-body">
+      <ul class="ingredient-list">
+        <li class="ingredient-row"><span class="ing-name">Æble</span><span class="ing-amount">1 stk. (~180g) · ~94 kcal</span></li>
+        <li class="ingredient-row"><span class="ing-name">Pære</span><span class="ing-amount">1 stk. (~180g) · ~90 kcal</span></li>
+        <li class="ingredient-row"><span class="ing-name">Gulerødder i stave</span><span class="ing-amount">200g · ~66 kcal</span></li>
+      </ul>
+      <div class="meal-macros">
+        <div class="mm macro-protein"><div class="mm-label">Protein</div><div class="mm-val">3g</div></div>
+        <div class="mm macro-carb"><div class="mm-label">Kulhydrat</div><div class="mm-val">50g</div></div>
+        <div class="mm macro-fat"><div class="mm-label">Fedt</div><div class="mm-val">1g</div></div>
+        <div class="mm macro-fiber"><div class="mm-label">Fiber</div><div class="mm-val">10g</div></div>
+      </div>
+      <div class="note"><strong>Tip:</strong> Gulerødder giver stor mæthed med få kalorier. Godt som snack inden træning — let på maven og naturlig energi.</div>
+    </div>
+  </div>
+
+  <!-- MÅLTID 3 -->
+  <div class="meal-card">
+    <div class="meal-header">
+      <div class="meal-num">3</div>
+      <div class="meal-info">
+        <div class="meal-name">Knækbrød med ost & pålæg ELLER Scrambled Eggs</div>
+        <div class="meal-tags">
+          <span class="meal-tag tag-protein">Protein</span>
+          <span class="meal-tag tag-fat">Fedt</span>
+        </div>
+      </div>
+      <div class="meal-right">
+        <span class="meal-kcal">~420 kcal</span>
+        <div class="meal-arrow">↓</div>
+      </div>
+    </div>
+    <div class="meal-body">
+      <ul class="ingredient-list">
+        <li class="ingredient-row"><span class="ing-name">Øgo GF knækbrød (26g/styk)</span><span class="ing-amount">2 styk = 52g · 258 kcal</span></li>
+        <li class="ingredient-row"><span class="ing-name">Cheasy ost 13% fedt</span><span class="ing-amount">3 skiver (~45g) · ~90 kcal</span></li>
+        <li class="ingredient-row"><span class="ing-name">Kalkunpålæg (GF) — tjek etiket</span><span class="ing-amount">3 skiver (~45g) · ~55 kcal</span></li>
+        <li class="ingredient-row"><span class="ing-name">Agurk eller tomat</span><span class="ing-amount">100g · ~20 kcal</span></li>
+      </ul>
+      <div class="meal-macros">
+        <div class="mm macro-protein"><div class="mm-label">Protein</div><div class="mm-val">29g</div></div>
+        <div class="mm macro-carb"><div class="mm-label">Kulhydrat</div><div class="mm-val">20g</div></div>
+        <div class="mm macro-fat"><div class="mm-label">Fedt</div><div class="mm-val">21g</div></div>
+        <div class="mm macro-fiber"><div class="mm-label">Fiber</div><div class="mm-val">6g</div></div>
+      </div>
+      <div class="note"><strong>Knækbrød-version:</strong> Øgo GF knækbrød 26g/styk · 129 kcal pr. styk. 2 styk = 258 kcal.</div>
+      <div class="note" style="margin-top:8px"><strong>Alternativ — Scrambled Eggs (5 æg):</strong> 5 æg scrambled i lidt smør/olie. ~410 kcal · 30g protein · 28g fedt · 5–7 µg D-vitamin. Markant mere D-vitamin og protein. Tilføj salt, peber og frisk purløg.</div>
+    </div>
+  </div>
+
+  <!-- MÅLTID 4 -->
+  <div class="meal-card">
+    <div class="meal-header">
+      <div class="meal-num">4</div>
+      <div class="meal-info">
+        <div class="meal-name">Aftensmad — Protein & Kulhydrat</div>
+        <div class="meal-tags">
+          <span class="meal-tag tag-protein">Protein</span>
+          <span class="meal-tag tag-carb">Kulhydrat</span>
+          <span class="meal-tag tag-fat">Fedt</span>
+        </div>
+      </div>
+      <div class="meal-right">
+        <span class="meal-kcal">~672 kcal</span>
+        <div class="meal-arrow">↓</div>
+      </div>
+    </div>
+    <div class="meal-body">
+      <ul class="ingredient-list">
+        <li class="ingredient-row"><span class="ing-name">Kyllingebryst (rå) ELLER hvid fisk</span><span class="ing-amount">275g · ~288 kcal / 320g · ~256 kcal</span></li>
+        <li class="ingredient-row"><span class="ing-name">Kartofler (kogt)</span><span class="ing-amount">320g · ~234 kcal</span></li>
+        <li class="ingredient-row"><span class="ing-name">ELLER hvide ris (råvægt)</span><span class="ing-amount">80g · ~272 kcal kogt</span></li>
+        <li class="ingredient-row"><span class="ing-name">ELLER GF pasta (råvægt)</span><span class="ing-amount">75g · ~265 kcal kogt</span></li>
+        <li class="ingredient-row"><span class="ing-name">Broccoli, bønner eller asparges</span><span class="ing-amount">300g · ~90 kcal</span></li>
+        <li class="ingredient-row"><span class="ing-name">Olivenolie til tilberedning</span><span class="ing-amount">1,5 tsk. · ~60 kcal</span></li>
+        <li class="ingredient-row"><span class="ing-name">Salt, peber, hvidløg, urter</span><span class="ing-amount">efter smag · ~0 kcal</span></li>
+      </ul>
+      <div class="meal-macros">
+        <div class="mm macro-protein"><div class="mm-label">Protein</div><div class="mm-val">62g</div></div>
+        <div class="mm macro-carb"><div class="mm-label">Kulhydrat</div><div class="mm-val">58g</div></div>
+        <div class="mm macro-fat"><div class="mm-label">Fedt</div><div class="mm-val">14g</div></div>
+        <div class="mm macro-fiber"><div class="mm-label">Fiber</div><div class="mm-val">8g</div></div>
+      </div>
+      <div class="note"><strong>Kulhydrat-valg:</strong> Kartofler (320g kogt) · Hvide ris (80g råvægt) · GF pasta (75g råvægt). Alle giver ~230–270 kcal og ~50–56g KH. Ris = lettere på maven. Kartofler = mætter mest. Pasta = hurtigst.</div>
+      <div class="note" style="margin-top:8px"><strong>Hvid fisk vs. kylling:</strong> Fisk giver samme protein men mere D-vitamin og omega-3. Varier gerne 3–4 dage om ugen.</div>
+    </div>
+  </div>
+
+  <!-- MÅLTID 5 -->
+  <div class="meal-card">
+    <div class="meal-header">
+      <div class="meal-num">5</div>
+      <div class="meal-info">
+        <div class="meal-name">Aften-skyr med bær & nødder</div>
+        <div class="meal-tags">
+          <span class="meal-tag tag-protein">Protein</span>
+          <span class="meal-tag tag-carb">Kulhydrat</span>
+          <span class="meal-tag tag-fat">Fedt</span>
+        </div>
+      </div>
+      <div class="meal-right">
+        <span class="meal-kcal">~488 kcal</span>
+        <div class="meal-arrow">↓</div>
+      </div>
+    </div>
+    <div class="meal-body">
+      <ul class="ingredient-list">
+        <li class="ingredient-row"><span class="ing-name">Løgismose eller Cheasy skyr, vanilje</span><span class="ing-amount">375g · ~225 kcal</span></li>
+        <li class="ingredient-row"><span class="ing-name">Blåbær (primært) — friske eller frosne</span><span class="ing-amount">250g · ~100 kcal</span></li>
+        <li class="ingredient-row"><span class="ing-name">Jordbær (alternativt)</span><span class="ing-amount">100g · ~32 kcal</span></li>
+        <li class="ingredient-row"><span class="ing-name">Valnødder</span><span class="ing-amount">20g · ~131 kcal</span></li>
+      </ul>
+      <div class="meal-macros">
+        <div class="mm macro-protein"><div class="mm-label">Protein</div><div class="mm-val">40g</div></div>
+        <div class="mm macro-carb"><div class="mm-label">Kulhydrat</div><div class="mm-val">53g</div></div>
+        <div class="mm macro-fat"><div class="mm-label">Fedt</div><div class="mm-val">14g</div></div>
+        <div class="mm macro-fiber"><div class="mm-label">Fiber</div><div class="mm-val">8g</div></div>
+      </div>
+      <div class="note"><strong>Søvn-protein:</strong> Casein fra skyr arbejder mens du sover og beskytter muskelmassen. Valnødder giver omega-3 og sunde fedtsyrer.</div>
+    </div>
+  </div>
+
+</div>
+
+<div class="totals-card">
+  <div class="totals-inner">
+    <div class="totals-title">Dagens totaler — verificerede kalorier pr. ingrediens</div>
+    <div class="totals-grid">
+      <div><div class="total-label">Kalorier</div><div class="total-val">~2.500 <span class="total-unit">kcal</span></div></div>
+      <div><div class="total-label">Protein</div><div class="total-val">~160 <span class="total-unit">g</span></div></div>
+      <div><div class="total-label">Kulhydrat</div><div class="total-val">~248 <span class="total-unit">g</span></div></div>
+      <div><div class="total-label">Fedt</div><div class="total-val">~68 <span class="total-unit">g</span></div></div>
+      <div><div class="total-label">Fiber</div><div class="total-val">~34 <span class="total-unit">g</span></div></div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+<!-- STYRKE TRACKER -->
+<!-- SUPPLEMENTER -->
+<div class="bsec" style="border-top:1px solid var(--bor);">
+  <div class="binn">
+    <div class="btop">
+      <div>
+        <div class="btitl">Supplementer — Daglig Protokol</div>
+        <div class="bsubt">Baseret på forskning · Alle fra helsam.dk</div>
+      </div>
+    </div>
+    <div style="margin-top:.75rem;">
+
+      <div style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acm);margin-bottom:8px;">☀️ Morgen med mad</div>
+
+      <div class="bcard" style="display:flex;justify-content:space-between;align-items:center;padding:.75rem 1rem;margin-bottom:6px;">
+        <div>
+          <div class="bcnm" style="margin-bottom:2px">OmniX Multivitamin</div>
+          <div style="font-size:12px;color:var(--txt);">1 tablet dagligt · Biosym · Uden jern og K-vitamin</div>
+        </div>
+        <div style="background:var(--acl);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:600;color:var(--acm);letter-spacing:.06em;flex-shrink:0;">1× dagligt</div>
+      </div>
+
+      <div class="bcard" style="display:flex;justify-content:space-between;align-items:center;padding:.75rem 1rem;margin-bottom:6px;">
+        <div>
+          <div class="bcnm" style="margin-bottom:2px">D-vitamin 38 µg</div>
+          <div style="font-size:12px;color:var(--txt);">1 kapsel dagligt · Bidro · Appelsinsmag</div>
+        </div>
+        <div style="background:var(--acl);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:600;color:var(--acm);letter-spacing:.06em;flex-shrink:0;">1× dagligt</div>
+      </div>
+
+      <div class="bcard" style="display:flex;justify-content:space-between;align-items:center;padding:.75rem 1rem;margin-bottom:14px;">
+        <div>
+          <div class="bcnm" style="margin-bottom:2px">Omega-3 EPA+DHA</div>
+          <div style="font-size:12px;color:var(--txt);">2 kapsler dagligt · Nordic Naturals Ultimate Omega · 1.280 mg EPA+DHA</div>
+        </div>
+        <div style="background:var(--acl);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:600;color:var(--acm);letter-spacing:.06em;flex-shrink:0;">2× dagligt</div>
+      </div>
+
+      <div style="font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--acm);margin-bottom:8px;">🌙 Aften inden sengetid</div>
+
+      <div class="bcard" style="display:flex;justify-content:space-between;align-items:center;padding:.75rem 1rem;">
+        <div>
+          <div class="bcnm" style="margin-bottom:2px">Magnesium Glycinate</div>
+          <div style="font-size:12px;color:var(--txt);">3 kapsler dagligt · Solaray · 30–60 min inden sengetid</div>
+        </div>
+        <div style="background:var(--acl);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:600;color:var(--acm);letter-spacing:.06em;flex-shrink:0;">3× dagligt</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+</div>
+
+
+
+<div class="view-panel" id="view-tracker">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hi">
+    <div class="eye">Martin Brøns · 19. juni 1977</div>
+    <h1 class="htit">Styrke<br><span class="g">Tracker</span></h1>
+    <p class="hsub">Skriv vægte ind — gemmes automatisk · Dato sættes automatisk · Baseline beregnes fra din alder og vægt</p>
+  </div>
+</div>
+
+<!-- BASELINE CALCULATOR -->
+<div class="bsec">
+  <div class="binn">
+    <div class="btop">
+      <div>
+        <div class="btitl">Baseline Mål (5RM)</div>
+        <div class="bsubt">Alderjusteret automatisk · Taste din aktuelle vægt ind og tryk Gem test</div>
+      </div>
+      <div class="wrow">
+        <label class="wlbl">Vægt (kg)</label>
+        <input type="number" id="bw" class="winb" placeholder="81" oninput="calcB();autoSaveTest()">
+        <span class="adsp" id="adsp"></span>
+      </div>
+    </div>
+    <div class="bgrid">
+      <div class="bcard">
+        <div class="bcnm">Squat 5RM</div>
+        <div class="bcls"><span class="lb" id="sq-b">—</span><span class="lg" id="sq-g">—</span><span class="lgr" id="sq-gr">—</span></div>
+        <div class="bclb"><span>Baseline</span><span>God</span><span>Fremragende</span></div>
+        <button class="bhist-btn" onclick="tbh('sq')">📋 Historik</button>
+        <div class="bhist" id="bh-sq"></div>
+      </div>
+      <div class="bcard">
+        <div class="bcnm">Deadlift 5RM</div>
+        <div class="bcls"><span class="lb" id="dl-b">—</span><span class="lg" id="dl-g">—</span><span class="lgr" id="dl-gr">—</span></div>
+        <div class="bclb"><span>Baseline</span><span>God</span><span>Fremragende</span></div>
+        <button class="bhist-btn" onclick="tbh('dl')">📋 Historik</button>
+        <div class="bhist" id="bh-dl"></div>
+      </div>
+      <div class="bcard">
+        <div class="bcnm">Bænkpres 5RM</div>
+        <div class="bcls"><span class="lb" id="bp-b">—</span><span class="lg" id="bp-g">—</span><span class="lgr" id="bp-gr">—</span></div>
+        <div class="bclb"><span>Baseline</span><span>God</span><span>Fremragende</span></div>
+        <button class="bhist-btn" onclick="tbh('bp')">📋 Historik</button>
+        <div class="bhist" id="bh-bp"></div>
+      </div>
+      <div class="bcard">
+        <div class="bcnm">Military Press</div>
+        <div class="bcls"><span class="lb" id="mp-b">—</span><span class="lg" id="mp-g">—</span><span class="lgr" id="mp-gr">—</span></div>
+        <div class="bclb"><span>Baseline</span><span>God</span><span>Fremragende</span></div>
+        <button class="bhist-btn" onclick="tbh('mp')">📋 Historik</button>
+        <div class="bhist" id="bh-mp"></div>
+      </div>
+      <div class="bcard">
+        <div class="bcnm">Bent Over Row</div>
+        <div class="bcls"><span class="lb" id="bor-b">—</span><span class="lg" id="bor-g">—</span><span class="lgr" id="bor-gr">—</span></div>
+        <div class="bclb"><span>Baseline</span><span>God</span><span>Fremragende</span></div>
+        <button class="bhist-btn" onclick="tbh('bor')">📋 Historik</button>
+        <div class="bhist" id="bh-bor"></div>
+      </div>
+      <div class="bcard">
+        <div class="bcnm">Lat Pulldown</div>
+        <div class="bcls"><span class="lb" id="lat-b">—</span><span class="lg" id="lat-g">—</span><span class="lgr" id="lat-gr">—</span></div>
+        <div class="bclb"><span>Baseline</span><span>God</span><span>Fremragende</span></div>
+        <button class="bhist-btn" onclick="tbh('lat')">📋 Historik</button>
+        <div class="bhist" id="bh-lat"></div>
+      </div>
+      <div class="bcard">
+        <div class="bcnm">Pull-ups</div>
+        <div class="bcls"><span class="lb" id="pu-b">—</span><span class="lg" id="pu-g">—</span><span class="lgr" id="pu-gr">—</span></div>
+        <div class="bclb"><span>Baseline</span><span>God</span><span>Fremragende</span></div>
+        <button class="bhist-btn" onclick="tbh('pu')">📋 Historik</button>
+        <div class="bhist" id="bh-pu"></div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<!-- STICKY NAV -->
+
+<!-- FYS ØVELSER -->
+<div class="bsec" style="margin-top:0;border-top:1px solid var(--bor)">
+  <div class="binn">
+    <div class="btop">
+      <div>
+        <div class="btitl">Rehabilitering — Fra Fysioterapeut</div>
+        <div class="bsubt">Lav disse øvelser i den angivne frekvens · Fra din fys</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-top:.75rem;">
+
+      <div class="bcard" style="display:flex;justify-content:space-between;align-items:center;padding:.75rem 1rem;">
+        <div>
+          <div class="bcnm" style="margin-bottom:2px">Iliacus</div>
+          <div style="font-size:12px;color:var(--txt);">3 sæt × 10 reps</div>
+        </div>
+        <div style="background:var(--acl);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:600;color:var(--acm);letter-spacing:.06em;">3× ugen</div>
+      </div>
+
+      <div class="bcard" style="display:flex;justify-content:space-between;align-items:center;padding:.75rem 1rem;">
+        <div>
+          <div class="bcnm" style="margin-bottom:2px">Hoftebøjer</div>
+          <div style="font-size:12px;color:var(--txt);">3 sæt × 20 sek</div>
+        </div>
+        <div style="background:var(--acl);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:600;color:var(--acm);letter-spacing:.06em;">3× ugen</div>
+      </div>
+
+      <div class="bcard" style="display:flex;justify-content:space-between;align-items:center;padding:.75rem 1rem;">
+        <div>
+          <div class="bcnm" style="margin-bottom:2px">Adduktor</div>
+          <div style="font-size:12px;color:var(--txt);">3 sæt × 30 sek</div>
+        </div>
+        <div style="background:var(--acl);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:600;color:var(--acm);letter-spacing:.06em;">3× ugen</div>
+      </div>
+
+      <div class="bcard" style="display:flex;justify-content:space-between;align-items:center;padding:.75rem 1rem;">
+        <div>
+          <div class="bcnm" style="margin-bottom:2px">Glut med</div>
+          <div style="font-size:12px;color:var(--txt);">3 sæt × 10 reps</div>
+        </div>
+        <div style="background:var(--acl);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:600;color:var(--acm);letter-spacing:.06em;">4× ugen</div>
+      </div>
+
+      <div class="bcard" style="display:flex;justify-content:space-between;align-items:center;padding:.75rem 1rem;">
+        <div>
+          <div class="bcnm" style="margin-bottom:2px">Inderlår</div>
+          <div style="font-size:12px;color:var(--txt);">3 sæt × 10 reps</div>
+        </div>
+        <div style="background:var(--acl);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:600;color:var(--acm);letter-spacing:.06em;">5× ugen</div>
+      </div>
+
+      <div class="bcard" style="display:flex;justify-content:space-between;align-items:center;padding:.75rem 1rem;">
+        <div>
+          <div class="bcnm" style="margin-bottom:2px">Sideplanke</div>
+          <div style="font-size:12px;color:var(--txt);">3 sæt × 20 sek</div>
+        </div>
+        <div style="background:var(--acl);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:600;color:var(--acm);letter-spacing:.06em;">5× ugen</div>
+      </div>
+
+      <div class="bcard" style="display:flex;justify-content:space-between;align-items:center;padding:.75rem 1rem;">
+        <div>
+          <div class="bcnm" style="margin-bottom:2px">Planke</div>
+          <div style="font-size:12px;color:var(--txt);">3 sæt × 20 sek</div>
+        </div>
+        <div style="background:var(--acl);border-radius:6px;padding:4px 10px;font-size:11px;font-weight:600;color:var(--acm);letter-spacing:.06em;">5× ugen</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+<!-- MOBILITY -->
+<div class="view-panel" id="view-mobility">
+
+<div class="hero">
+  <div class="hi">
+    <div class="eye">Martin Brøns · 19. juni 1977 · Aftenprogram</div>
+    <h1 class="htit">Mobility<br><span class="g">Program</span></h1>
+    <p class="hsub">20 minutter der mobiliserer hele kroppen nedefra og op — ankler, hofter, baglår, psoas, rygsøjle og skuldre. Klik på hver øvelse for instruktion og YouTube-link.</p>
+    <div class="hpills">
+      <span class="hp">20 min total</span>
+      <span class="hp">7 øvelser</span>
+      <span class="hp">Ingen udstyr</span>
+      <span class="hp">Om aftenen — ikke inden træning</span>
+      <span class="hp">Gluteus medius fokus</span>
+    </div>
+  </div>
+</div>
+
+<div class="bsec">
+  <div class="binn">
+    <div class="btop">
+      <div>
+        <div class="btitl">Baseline — Hvad forventes ved <span id="mob-age">49</span> år</div>
+        <div class="bsubt">Aldersjusterede mobilitetsmål · Begynder → God → Fremragende</div>
+      </div>
+    </div>
+    <div class="bgrid">
+      <div class="bcard"><div class="bcnm">Knæ-til-væg (ankel)</div><div class="bcls"><span class="lb">8 cm</span><span class="lg">10 cm</span><span class="lgr">12+ cm</span></div><div class="bclb"><span>Begynder</span><span>God</span><span>Fremragende</span></div></div>
+      <div class="bcard"><div class="bcnm">90/90 Hofte (hold)</div><div class="bcls"><span class="lb">30 sek</span><span class="lg">60 sek</span><span class="lgr">90 sek</span></div><div class="bclb"><span>Begynder</span><span>God</span><span>Fremragende</span></div></div>
+      <div class="bcard"><div class="bcnm">Pigeon Pose (hold)</div><div class="bcls"><span class="lb">30 sek</span><span class="lg">60 sek</span><span class="lgr">90 sek</span></div><div class="bclb"><span>Begynder</span><span>God</span><span>Fremragende</span></div></div>
+      <div class="bcard"><div class="bcnm">Psoas stræk (hold)</div><div class="bcls"><span class="lb">30 sek</span><span class="lg">45 sek</span><span class="lgr">60 sek</span></div><div class="bclb"><span>Begynder</span><span>God</span><span>Fremragende</span></div></div>
+      <div class="bcard"><div class="bcnm">Baglår (vinkel)</div><div class="bcls"><span class="lb">60°</span><span class="lg">75°</span><span class="lgr">90°</span></div><div class="bclb"><span>Begynder</span><span>God</span><span>Fremragende</span></div></div>
+      <div class="bcard"><div class="bcnm">Thorakal rotation</div><div class="bcls"><span class="lb">30°</span><span class="lg">45°</span><span class="lgr">60°</span></div><div class="bclb"><span>Begynder</span><span>God</span><span>Fremragende</span></div></div>
+      <div class="bcard"><div class="bcnm">Child's Pose</div><div class="bcls"><span class="lb">Halvt</span><span class="lg">Fuld</span><span class="lgr">Med stræk</span></div><div class="bclb"><span>Begynder</span><span>God</span><span>Fremragende</span></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="prog">
+
+  <!-- 1 -->
+  <div class="ex" style="--c:#1A6B5A" onclick="tog(this)">
+    <div class="ex-head">
+      <div class="ex-stripe" style="background:#1A6B5A"></div>
+      <div class="ex-num">1</div>
+      <div class="ex-info">
+        <div class="ex-name">Knee-to-Wall — Ankelmobilitet</div>
+        <div class="ex-sub">Ankler · Lægmuskler · Dorsifleksion</div>
+        <div class="tags">
+          <span class="tag" style="background:#E6F3F0;color:#1A6B5A">Ankel</span>
+          <span class="tag" style="background:var(--grl);color:var(--grn)">Løb & March</span>
+        </div>
+      </div>
+      <div class="ex-right"><div class="ex-time" style="color:#1A6B5A">2 min</div><span class="arr">↓</span></div>
+    </div>
+    <div class="ex-body">
+      <div class="ex-grid">
+        <div class="ex-col">
+          <span class="clbl">Sådan gør du</span>
+          <ul class="steps">
+            <li class="step"><span class="sn">1</span><span>Stå med tæerne ~10 cm fra en væg</span></li>
+            <li class="step"><span class="sn">2</span><span>Skub knæet fremad mod væggen — hold hælen i gulvet hele tiden</span></li>
+            <li class="step"><span class="sn">3</span><span>Flyt foden bagud til du næsten ikke kan røre væggen — det er din startposition</span></li>
+            <li class="step"><span class="sn">4</span><span>10 kontrollerede reps pr. side · 2 sæt</span></li>
+          </ul>
+          <div class="dur"><span style="font-size:1.1rem">⏱</span><div><div class="dur-t">2 minutter total</div><div class="dur-s">10 reps × 2 sæt × 2 sider</div></div></div>
+          <div class="yts"><a href="https://www.youtube.com/watch?v=ElrpduJn92Y" target="_blank" class="yt yt-red">▶ Se øvelsen på YouTube</a></div>
+        </div>
+        <div class="ex-col">
+          <span class="clbl">Formål & Baseline</span>
+          <div class="nb n-teal"><strong>Formål:</strong> Ankelmobilitet er kritisk for squat-dybde, løbeøkonomi og marchkapacitet. Stram ankel kompenseres op i knæ og hofte — kan bidrage til din gluteus medius-problematik.</div>
+          <div class="nb n-grn"><strong>Baseline god (<span class="dyn-age">49</span> år):</strong> Knæet rører væggen med foden 10 cm fra væggen. Fremragende: 12+ cm.</div>
+          <div class="nb n-amb"><strong>Alderstip:</strong> Ankelmobilitet falder typisk med alderen. Daglig øvelse er mere effektivt end ugentlig.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="ex" onclick="tog(this)">
+    <div class="ex-head">
+      <div class="ex-stripe" style="background:var(--grn)"></div>
+      <div class="ex-num">2</div>
+      <div class="ex-info">
+        <div class="ex-name">Hip 90/90 — Hoftens ydre rotatorer</div>
+        <div class="ex-sub">Gluteus medius · Piriformis · Ydre hofterotatorer</div>
+        <div class="tags">
+          <span class="tag" style="background:var(--grl);color:var(--grn)">Hofte</span>
+          <span class="tag" style="background:#FEF5F5;color:#802020">Gluteus medius</span>
+          <span class="tag" style="background:var(--grl);color:var(--grn)">Løb</span>
+        </div>
+      </div>
+      <div class="ex-right"><div class="ex-time" style="color:var(--grn)">3 min</div><span class="arr">↓</span></div>
+    </div>
+    <div class="ex-body">
+      <div class="ex-grid">
+        <div class="ex-col">
+          <span class="clbl">Sådan gør du</span>
+          <ul class="steps">
+            <li class="step"><span class="sn">1</span><span>Sid på gulvet med begge ben i 90° — forreste ben udad, bagerste ben bagud</span></li>
+            <li class="step"><span class="sn">2</span><span>Hold rygsøjlen rank og læn let fremad over forreste ben</span></li>
+            <li class="step"><span class="sn">3</span><span>Hold 60–90 sek pr. side — brug dybe vejrtrækninger til at slappe af dybere</span></li>
+            <li class="step"><span class="sn">4</span><span>Skift side og gentag — start med den skadede hofte</span></li>
+          </ul>
+          <div class="dur"><span style="font-size:1.1rem">⏱</span><div><div class="dur-t">3 minutter total</div><div class="dur-s">60–90 sek pr. side × 2 sider</div></div></div>
+          <div class="yts"><a href="https://www.youtube.com/watch?v=VYvMMw8z3rE" target="_blank" class="yt yt-red">▶ Se øvelsen på YouTube</a></div>
+        </div>
+        <div class="ex-col">
+          <span class="clbl">Formål & Baseline</span>
+          <div class="nb n-red"><strong>Din vigtigste øvelse:</strong> 90/90 rammer direkte de dybe hoftemuskler involveret i din gluteus medius-skade. Brug ekstra tid på den skadede side.</div>
+          <div class="nb n-grn"><strong>Baseline god (<span class="dyn-age">49</span> år):</strong> Kan holde positionen i 60 sek med rank ryg. Fremragende: 90 sek med fremadlæn over benet uden kompensation.</div>
+          <div class="nb n-teal"><strong>Progression:</strong> Når du kan holde 90 sek — tilføj aktiv rotation frem og tilbage 10× pr. side.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="ex" onclick="tog(this)">
+    <div class="ex-head">
+      <div class="ex-stripe" style="background:var(--blu)"></div>
+      <div class="ex-num">3</div>
+      <div class="ex-info">
+        <div class="ex-name">Pigeon Pose modificeret — Piriformis & Hofte</div>
+        <div class="ex-sub">Piriformis · Gluteus · Hoftebøjer — anden vinkel end 90/90</div>
+        <div class="tags">
+          <span class="tag" style="background:var(--bll);color:var(--blu)">Hofte</span>
+          <span class="tag" style="background:var(--aml);color:var(--amb)">Fleksibilitet</span>
+          <span class="tag" style="background:#FEF5F5;color:#802020">Gluteus</span>
+        </div>
+      </div>
+      <div class="ex-right"><div class="ex-time" style="color:var(--blu)">3 min</div><span class="arr">↓</span></div>
+    </div>
+    <div class="ex-body">
+      <div class="ex-grid">
+        <div class="ex-col">
+          <span class="clbl">Sådan gør du</span>
+          <ul class="steps">
+            <li class="step"><span class="sn">1</span><span>Start på alle fire. Bring højre knæ frem mod højre hånd</span></li>
+            <li class="step"><span class="sn">2</span><span>Stræk venstre ben bagud — hofterne peger fremad og jævnt</span></li>
+            <li class="step"><span class="sn">3</span><span>Sænk hoften ned mod gulvet — brug pude under hoften hvis det er svært</span></li>
+            <li class="step"><span class="sn">4</span><span>Hold 60–90 sek pr. side — vejrtræk dybt og slip spændingen</span></li>
+          </ul>
+          <div class="dur"><span style="font-size:1.1rem">⏱</span><div><div class="dur-t">3 minutter total</div><div class="dur-s">90 sek pr. side × 2 sider</div></div></div>
+          <div class="yts"><a href="https://www.youtube.com/watch?v=M1gEGLtF1p0" target="_blank" class="yt yt-red">▶ Se øvelsen på YouTube</a></div>
+        </div>
+        <div class="ex-col">
+          <span class="clbl">Formål & Baseline</span>
+          <div class="nb n-teal"><strong>Formål:</strong> Rammer piriformis og ydre hofterotatorer fra en anden vinkel end 90/90. Supplerer gluteus medius-rehabiliteringen direkte.</div>
+          <div class="nb n-grn"><strong>Baseline god (<span class="dyn-age">49</span> år):</strong> Kan holde 60 sek uden at hofterne roterer til siden. Fremragende: 90 sek med begge hoftekamme jævne.</div>
+          <div class="nb n-red"><strong>Modificeret:</strong> Hoften når ikke gulvet? Læg et foldet håndklæde under. Aldrig tving det — skal mærkes, ikke gøre ondt.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="ex" onclick="tog(this)">
+    <div class="ex-head">
+      <div class="ex-stripe" style="background:var(--amb)"></div>
+      <div class="ex-num">4</div>
+      <div class="ex-info">
+        <div class="ex-name">Kneeling Hip Flexor Stretch — Psoas</div>
+        <div class="ex-sub">Psoas · Iliacus · Rectus femoris — kritisk for løbere</div>
+        <div class="tags">
+          <span class="tag" style="background:var(--aml);color:var(--amb)">Psoas</span>
+          <span class="tag" style="background:var(--grl);color:var(--grn)">Løb & March</span>
+          <span class="tag" style="background:var(--aml);color:var(--amb)">Fleksibilitet</span>
+        </div>
+      </div>
+      <div class="ex-right"><div class="ex-time" style="color:var(--amb)">2 min</div><span class="arr">↓</span></div>
+    </div>
+    <div class="ex-body">
+      <div class="ex-grid">
+        <div class="ex-col">
+          <span class="clbl">Sådan gør du</span>
+          <ul class="steps">
+            <li class="step"><span class="sn">1</span><span>Knæl på ét knæ — forreste fod flad i gulvet, knæ over hæl</span></li>
+            <li class="step"><span class="sn">2</span><span>Tuck bækkenet bagud — klem gluteus aktivt (dette er nøglen!)</span></li>
+            <li class="step"><span class="sn">3</span><span>Skyd hoften fremad mens bækkenet holder tuck</span></li>
+            <li class="step"><span class="sn">4</span><span>Løft armen på siden af det kniende ben — øger strækket</span></li>
+            <li class="step"><span class="sn">5</span><span>Hold 45–60 sek pr. side</span></li>
+          </ul>
+          <div class="dur"><span style="font-size:1.1rem">⏱</span><div><div class="dur-t">2 minutter total</div><div class="dur-s">45–60 sek pr. side × 2 sider</div></div></div>
+          <div class="yts"><a href="https://www.youtube.com/watch?v=Q4Ko275cluo" target="_blank" class="yt yt-red">▶ Se øvelsen på YouTube</a></div>
+        </div>
+        <div class="ex-col">
+          <span class="clbl">Formål & Baseline</span>
+          <div class="nb n-amb"><strong>Formål:</strong> Stram psoas tilter bækkenet fremad og øger belastningen på lænden og gluteus medius ved hvert løbeskridt. Kritisk for løbeøkonomi og hoftestabilitet.</div>
+          <div class="nb n-grn"><strong>Baseline god (<span class="dyn-age">49</span> år):</strong> Kan holde 45 sek pr. side med aktivt tucket bækken uden at rygsøjlen hyperextenderer. Fremragende: 60 sek med armløft.</div>
+          <div class="nb n-teal"><strong>Nøgle:</strong> Bækkenet SKAL være tucket — ellers strækker du lænden, ikke psoas. Den fejl laver de fleste.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="ex" onclick="tog(this)">
+    <div class="ex-head">
+      <div class="ex-stripe" style="background:var(--pnk)"></div>
+      <div class="ex-num">5</div>
+      <div class="ex-info">
+        <div class="ex-name">Liggende Baglårsstræk — Supine Hamstring</div>
+        <div class="ex-sub">Baglår · Nedre ryg · Sciatic nerve</div>
+        <div class="tags">
+          <span class="tag" style="background:var(--pkl);color:var(--pnk)">Baglår</span>
+          <span class="tag" style="background:var(--aml);color:var(--amb)">Fleksibilitet</span>
+          <span class="tag" style="background:var(--grl);color:var(--grn)">Løb</span>
+        </div>
+      </div>
+      <div class="ex-right"><div class="ex-time" style="color:var(--pnk)">2 min</div><span class="arr">↓</span></div>
+    </div>
+    <div class="ex-body">
+      <div class="ex-grid">
+        <div class="ex-col">
+          <span class="clbl">Sådan gør du</span>
+          <ul class="steps">
+            <li class="step"><span class="sn">1</span><span>Læg dig på ryggen med begge ben strakt i gulvet</span></li>
+            <li class="step"><span class="sn">2</span><span>Løft ét ben op — hold bag låret med begge hænder</span></li>
+            <li class="step"><span class="sn">3</span><span>Stræk knæet langsomt — hold benet så ret som muligt</span></li>
+            <li class="step"><span class="sn">4</span><span>Hold 30–45 sek pr. side — brug vejrtrækning til at slippe dybere</span></li>
+            <li class="step"><span class="sn">5</span><span>Alternativt: brug et håndklæde om foden</span></li>
+          </ul>
+          <div class="dur"><span style="font-size:1.1rem">⏱</span><div><div class="dur-t">2 minutter total</div><div class="dur-s">45 sek pr. side × 2 sider</div></div></div>
+          <div class="yts"><a href="https://www.youtube.com/watch?v=5P3E8Pec_L8" target="_blank" class="yt yt-red">▶ Se øvelsen på YouTube</a></div>
+        </div>
+        <div class="ex-col">
+          <span class="clbl">Formål & Baseline</span>
+          <div class="nb n-teal"><strong>Formål:</strong> Baglårene er intenst brugt ved deadlift, RDL og løb. Stramme baglår øger belastningen på lænden og kan kompensere ind i hoften — direkte forebyggelse.</div>
+          <div class="nb n-grn"><strong>Baseline god (<span class="dyn-age">49</span> år):</strong> Kan løfte benet til ~75° fra gulvet med strakt knæ. Fremragende: 90° (lodret). De fleste mænd starter på 50–60°.</div>
+          <div class="nb n-amb"><strong>Undgå:</strong> Rund ikke ryggen for at nå længere. Lænd mod gulvet hele vejen — bevæg kun hoften.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="ex" onclick="tog(this)">
+    <div class="ex-head">
+      <div class="ex-stripe" style="background:#4A4A7A"></div>
+      <div class="ex-num">6</div>
+      <div class="ex-info">
+        <div class="ex-name">Cat-Cow + Thorakal Rotation + Nakke</div>
+        <div class="ex-sub">Rygsøjle · Thorakal mobilitet · Cervical nakke</div>
+        <div class="tags">
+          <span class="tag" style="background:#EEEEF8;color:#4A4A7A">Rygsøjle</span>
+          <span class="tag" style="background:#EEEEF8;color:#4A4A7A">Thorakal</span>
+          <span class="tag" style="background:var(--grl);color:var(--grn)">Løbeøkonomi</span>
+        </div>
+      </div>
+      <div class="ex-right"><div class="ex-time" style="color:#4A4A7A">4 min</div><span class="arr">↓</span></div>
+    </div>
+    <div class="ex-body">
+      <div class="ex-grid">
+        <div class="ex-col">
+          <span class="clbl">Sådan gør du</span>
+          <ul class="steps">
+            <li class="step"><span class="sn">1</span><span><strong>Cat-Cow:</strong> På alle fire — rund ryggen op mod loftet (cat), sænk maven ned (cow). Langsomt. 8 reps.</span></li>
+            <li class="step"><span class="sn">2</span><span><strong>Thorakal rotation:</strong> Læg én hånd bag nakken. Roter albuen mod loftet — hold hofterne stille. 8 reps pr. side.</span></li>
+            <li class="step"><span class="sn">3</span><span><strong>Nakke:</strong> Sid oprejst — langsomt øre mod skulder, chin til bryst, rul til anden side. 5 langsom reps.</span></li>
+          </ul>
+          <div class="dur"><span style="font-size:1.1rem">⏱</span><div><div class="dur-t">4 minutter total</div><div class="dur-s">Cat-Cow + rotation + nakke sekvens</div></div></div>
+          <div class="yts"><a href="https://www.youtube.com/watch?v=_5sX7ObEfvM" target="_blank" class="yt yt-red">▶ Se øvelsen på YouTube</a></div>
+        </div>
+        <div class="ex-col">
+          <span class="clbl">Formål & Baseline</span>
+          <div class="nb n-teal"><strong>Formål:</strong> Thorakal rotation er kritisk for løbeøkonomi — modsatrettet arm- og bensvingning kræver fri rotation i øvre ryg. Stiv thorakal rygsøjle tvinger kompensation ned i lænden og hoften.</div>
+          <div class="nb n-grn"><strong>Baseline god (<span class="dyn-age">49</span> år):</strong> Thorakal rotation ≥45° til begge sider. Fremragende: 60°. Test: sid på stol og roter kun overkroppen — mål med armene.</div>
+          <div class="nb n-amb"><strong>Nøgle:</strong> I thorakal rotation — hold hofterne stille. Isolér bevægelsen til øvre ryg. Det er sværere end det lyder.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="ex" onclick="tog(this)">
+    <div class="ex-head">
+      <div class="ex-stripe" style="background:#5A3A1A"></div>
+      <div class="ex-num">7</div>
+      <div class="ex-info">
+        <div class="ex-name">Thread the Needle + Child's Pose lateral</div>
+        <div class="ex-sub">Øvre ryg · Skulder · Lateral stræk · Afspænding</div>
+        <div class="tags">
+          <span class="tag" style="background:#F5EDE0;color:#5A3A1A">Skulder</span>
+          <span class="tag" style="background:var(--bll);color:var(--blu)">Øvre ryg</span>
+          <span class="tag" style="background:var(--grl);color:var(--grn)">Afspænding</span>
+        </div>
+      </div>
+      <div class="ex-right"><div class="ex-time" style="color:#5A3A1A">4 min</div><span class="arr">↓</span></div>
+    </div>
+    <div class="ex-body">
+      <div class="ex-grid">
+        <div class="ex-col">
+          <span class="clbl">Sådan gør du</span>
+          <ul class="steps">
+            <li class="step"><span class="sn">1</span><span><strong>Thread the Needle:</strong> På alle fire — løft højre hånd mod loftet og træd den ind under venstre arm. Skulderblad og øre mod gulvet. Hold 30 sek. Gentag venstre. 2 runder.</span></li>
+            <li class="step"><span class="sn">2</span><span><strong>Child's Pose lateral:</strong> Fra Child's Pose — walk hænderne til højre, hold 30 sek. Tilbage til center. Gå til venstre, hold 30 sek.</span></li>
+            <li class="step"><span class="sn">3</span><span><strong>Afslutning:</strong> Standard Child's Pose med dybe vejrtrækninger — 60 sek. Lad kroppen og sindet slippe.</span></li>
+          </ul>
+          <div class="dur"><span style="font-size:1.1rem">⏱</span><div><div class="dur-t">4 minutter total</div><div class="dur-s">Thread the Needle + lateral + afslutning</div></div></div>
+          <div class="yts">
+            <a href="https://www.youtube.com/watch?v=JpW0Y5d3drw" target="_blank" class="yt yt-red">▶ Thread the Needle — YouTube</a>
+            <a href="https://www.youtube.com/watch?v=YTAwpiX2Dsg" target="_blank" class="yt yt-teal">▶ Child's Pose lateral — YouTube</a>
+          </div>
+        </div>
+        <div class="ex-col">
+          <span class="clbl">Formål & Baseline</span>
+          <div class="nb n-teal"><strong>Thread the Needle:</strong> Rammer rhomboids, posterior deltoid og thorakal rotation. Modvirker skulderforspænding fra bænkpres og military press. Ingen redskaber.</div>
+          <div class="nb n-teal" style="margin-top:6px"><strong>Child's Pose lateral:</strong> Lateral stræk af latissimus dorsi og lateral rygsøjle — dekomprimer rygsøjlen og afslut programmet i ro og vejrtrækning.</div>
+          <div class="nb n-grn"><strong>Baseline:</strong> Thread the Needle — skulder rører gulvet uden hofterotation = god. Child's Pose — baller rører hæle med armene fuldt strakt = fremragende.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="summary">
+  <div class="st">Program Oversigt — 20 min</div>
+  <div class="sg">
+    <div class="si"><div class="sl">1 — Knee-to-Wall</div><div class="sv">Ankel · 2 min · 10 reps × 2 sæt × 2 sider</div></div>
+    <div class="si"><div class="sl">2 — Hip 90/90</div><div class="sv">Hofte · 3 min · 60–90 sek × 2 sider</div></div>
+    <div class="si"><div class="sl">3 — Pigeon Pose</div><div class="sv">Piriformis · 3 min · 90 sek × 2 sider</div></div>
+    <div class="si"><div class="sl">4 — Hip Flexor / Psoas</div><div class="sv">Psoas · 2 min · 45–60 sek × 2 sider</div></div>
+    <div class="si"><div class="sl">5 — Baglårsstræk</div><div class="sv">Hamstring · 2 min · 45 sek × 2 sider</div></div>
+    <div class="si"><div class="sl">6 — Cat-Cow + Rotation</div><div class="sv">Rygsøjle · 4 min · 8 reps + nakke</div></div>
+    <div class="si"><div class="sl">7 — Thread + Child's Pose</div><div class="sv">Skulder + afspænding · 4 min</div></div>
+    <div class="si"><div class="sl">Hvornår</div><div class="sv">Om aftenen — aldrig direkte inden styrketræning eller løb</div></div>
+  </div>
+</div>
+
+
+
+</div>
+
+<!-- MENTAL -->
+<div class="view-panel" id="view-mental">
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-eyebrow">Martin Brøns · SOF Mental Framework</div>
+  <h1 class="hero-title">
+    MENTAL<br>
+    <span class="line2">Performance</span>
+  </h1>
+  <p class="hero-desc">10 minutter dagligt. Formiddag som primært vindue. Fokus på selvkritik og perfektionisme. Baseret på SOF-principper, OODA, ACT og identity-based habits.</p>
+  <div class="hero-pills">
+    <span class="pill gold">10 min/dag</span>
+    <span class="pill">Formiddag</span>
+    <span class="pill">SOF-baseret</span>
+    <span class="pill">Selvkritik fokus</span>
+    <span class="pill">Slik-protokol</span>
+  </div>
+</div>
+
+<div style="max-width:760px;margin:0 auto">
+
+<!-- IDENTITET -->
+<div class="section">
+  <div class="sec-label">Identitet — Dit fundament</div>
+
+  <div class="identity-card">
+    <div class="identity-text">
+      "Jeg er en udholdenhedsatlet der forbereder sig til MdS 2027. Jeg spiser, træner og tænker som en atlet — ikke fordi det er let, men fordi det er hvem jeg er."
+    </div>
+    <div class="identity-sub">LÆS DETTE HØJT HVER MORGEN — 10 sekunder · Det er ikke affirmation. Det er identitetsprogrammering.</div>
+  </div>
+
+  <div class="quote-block">
+    <div class="quote-text">"Every action you take is a vote for the type of person you wish to become."</div>
+    <div class="quote-attr">— James Clear, Atomic Habits</div>
+  </div>
+
+  <div class="pb-note n-gold" style="margin-top:0">
+    <strong>Selvkritik vs. identitet:</strong> Når du spiser slik er det ikke fordi du er svag. Det er fordi identiteten endnu ikke er fuldt installeret. Hver gang du vælger rigtigt stemmer du på atleten. Ingen skyld — kun stemmer.
+  </div>
+</div>
+
+<!-- DAGLIG 10-MINUTTERS PROTOKOL -->
+<div class="section">
+  <div class="sec-label">Daglig protokol — 10 minutter</div>
+  <div class="sec-title">DEN DAGLIGE MISSION</div>
+
+  <div class="protocol-grid">
+
+    <!-- MORGEN -->
+    <div class="protocol-block t-gold" onclick="tog(this)">
+      <div class="pb-head">
+        <div class="pb-time">07:00</div>
+        <div class="pb-divider"></div>
+        <div class="pb-info">
+          <div class="pb-title">Morgen-intention — 3 min</div>
+          <div class="pb-meta">Identitet + dagens mission + box breathing</div>
+        </div>
+        <div class="pb-badge">Morgen</div>
+        <div class="pb-arrow">↓</div>
+      </div>
+      <div class="pb-body">
+        <ul class="pb-steps">
+          <li class="pb-step"><span class="pb-step-n">1</span><span><strong>Læs identitetssætningen højt</strong> — se den på telefonen. 10 sekunder.</span></li>
+          <li class="pb-step"><span class="pb-step-n">2</span><span><strong>Box Breathing — 4 runder:</strong> 4 sek ind → 4 hold → 4 ud → 4 hold. Aktiverer prefrontal cortex. Lukker støjen.</span></li>
+          <li class="pb-step"><span class="pb-step-n">3</span><span><strong>Ét fokuspunkt for dagen:</strong> Hvad er den vigtigste ting jeg gør i dag der stemmer med atleten? Skriv det i telefonen eller sig det højt.</span></li>
+        </ul>
+        <div class="pb-note n-gold"><strong>Formiddag er dit vindue:</strong> Din prefrontale cortex er skarpest nu. Brug de 3 minutter inden møder og støj tager over.</div>
+      </div>
+    </div>
+
+    <!-- OODA CHECK-IN -->
+    <div class="protocol-block t-blu" onclick="tog(this)">
+      <div class="pb-head">
+        <div class="pb-time">12:00</div>
+        <div class="pb-divider"></div>
+        <div class="pb-info">
+          <div class="pb-title">OODA Middag-check — 2 min</div>
+          <div class="pb-meta">Observe → Orient → Decide → Act</div>
+        </div>
+        <div class="pb-badge">Middag</div>
+        <div class="pb-arrow">↓</div>
+      </div>
+      <div class="pb-body">
+        <ul class="pb-steps">
+          <li class="pb-step"><span class="pb-step-n">O</span><span><strong>Observe:</strong> Hvad er mit energiniveau? Hvad mærker jeg? Er der noget der presser sig på?</span></li>
+          <li class="pb-step"><span class="pb-step-n">O</span><span><strong>Orient:</strong> Hvad driver det? Stress? Træthed? Sult? Hvad er konteksten?</span></li>
+          <li class="pb-step"><span class="pb-step-n">D</span><span><strong>Decide:</strong> Hvad tjener missionen bedst de næste 4 timer?</span></li>
+          <li class="pb-step"><span class="pb-step-n">A</span><span><strong>Act:</strong> Gør det. Én konkret handling — ikke en liste.</span></li>
+        </ul>
+        <div class="pb-note n-blu"><strong>OODA-loop:</strong> Den der kører hurtigere gennem loopet vinder. Ikke mod andre — mod impulsen. 2 minutter er nok til at bryde autopilot.</div>
+      </div>
+    </div>
+
+    <!-- SLIK-PROTOKOL -->
+    <div class="protocol-block t-red" onclick="tog(this)">
+      <div class="pb-head">
+        <div class="pb-time">19:00</div>
+        <div class="pb-divider"></div>
+        <div class="pb-info">
+          <div class="pb-title">Aften-protokol — slik-forsvar</div>
+          <div class="pb-meta">Recognize · Release · Refocus + system</div>
+        </div>
+        <div class="pb-badge">Kritisk</div>
+        <div class="pb-arrow">↓</div>
+      </div>
+      <div class="pb-body">
+        <ul class="pb-steps">
+          <li class="pb-step"><span class="pb-step-n">1</span><span><strong>LAV MÅLTID 5 NU</strong> — efter aftensmaden mens motivationen er høj. Portion skyr, bær og valnødder op. Stil den klar i køleskabet.</span></li>
+          <li class="pb-step"><span class="pb-step-n">2</span><span><strong>Recognize:</strong> Når lysten kommer — sig til dig selv: "Jeg mærker lysten. Den er der. Det er biokemi, ikke svaghed."</span></li>
+          <li class="pb-step"><span class="pb-step-n">3</span><span><strong>Release:</strong> Tag 3 dybe vejrtrækninger. Du behøver ikke handle på lysten — den er en tanke, ikke en ordre.</span></li>
+          <li class="pb-step"><span class="pb-step-n">4</span><span><strong>Refocus:</strong> Tag skyr-skålen fra køleskabet. Det er dit valg — ikke et forbud.</span></li>
+        </ul>
+        <div class="pb-note n-red"><strong>10-second rule:</strong> Vent 10 sekunder inden du handler på lysten. Det er nok til at prefrontal cortex overtager fra det limbiske system. Gå fra reaktion til beslutning.</div>
+        <div class="pb-note n-grn" style="margin-top:6px"><strong>System over viljestyrke:</strong> Slik ikke i huset = mission mulig. Slik i huset = unødvendig svær mission. Design omgivelserne.</div>
+      </div>
+    </div>
+
+    <!-- AAR -->
+    <div class="protocol-block t-grn" onclick="tog(this)">
+      <div class="pb-head">
+        <div class="pb-time">21:30</div>
+        <div class="pb-divider"></div>
+        <div class="pb-info">
+          <div class="pb-title">After Action Review — 5 min</div>
+          <div class="pb-meta">Ingen skyld — kun data og justering</div>
+        </div>
+        <div class="pb-badge">Aften</div>
+        <div class="pb-arrow">↓</div>
+      </div>
+      <div class="pb-body">
+        <ul class="pb-steps">
+          <li class="pb-step"><span class="pb-step-n">1</span><span><strong>Hvad gik godt i dag?</strong> Find mindst ét — uanset hvad dagen indeholdt. En sejr er en sejr.</span></li>
+          <li class="pb-step"><span class="pb-step-n">2</span><span><strong>Hvad gik ikke som planlagt?</strong> Facts kun — ingen dom. "Jeg spiste slik kl. 21" ikke "jeg er svag".</span></li>
+          <li class="pb-step"><span class="pb-step-n">3</span><span><strong>Hvad gør jeg anderledes i morgen?</strong> Én konkret justering — ikke en liste over forbedringer.</span></li>
+          <li class="pb-step"><span class="pb-step-n">4</span><span><strong>Stem på atleten:</strong> Hvad var dagens samlede stemme — for eller imod identiteten?</span></li>
+        </ul>
+        <div class="pb-note n-grn"><strong>Selvkritik er ikke AAR:</strong> AAR er koldt og faktabaseret. Selvkritik er følelsesbaseret og uproduktivt. En SOF-soldat analyserer missionen — han piner sig ikke over den. Gør det samme.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- VÆRKTØJSKASSE -->
+<div class="section">
+  <div class="sec-label">Værktøjskasse — Klik for at udfolde</div>
+  <div class="sec-title">DINE MENTALE VÅBEN</div>
+
+  <div class="tools-grid">
+
+    <div class="tool-card" onclick="togTool(this)">
+      <div class="tc-head">
+        <div class="tc-left">
+          <div class="tc-origin">SOF · John Boyd</div>
+          <div class="tc-name">OODA Loop</div>
+          <div class="tc-tagline">Observe → Orient → Decide → Act</div>
+        </div>
+        <div class="tc-arrow">↓</div>
+      </div>
+      <div class="tc-body">
+        Originalt udviklet til luftkamp — nu kerneværktøj i SOF og high-performance ledelse. Den der kører hurtigere gennem loopet vinder. Pointen er ikke at tænke mere — men at bryde autopilot og handle bevidst.
+        <div class="tc-apply"><strong>Din anvendelse:</strong> Når lysten til slik rammer — kør OODA på den. Observer lysten, orient dig (hvad sker der?), beslut bevidst og agér. 10 sekunder.</div>
+      </div>
+    </div>
+
+    <div class="tool-card" onclick="togTool(this)">
+      <div class="tc-head">
+        <div class="tc-left">
+          <div class="tc-origin">Militær psykologi</div>
+          <div class="tc-name">Recognize · Release · Refocus</div>
+          <div class="tc-tagline">Anerkend · Slip · Rett fokus</div>
+        </div>
+        <div class="tc-arrow">↓</div>
+      </div>
+      <div class="tc-body">
+        Brugt aktivt i dansk eliteidræt og SOF. Eliminerer ikke ubehagelige impulser — ændrer dit forhold til dem. Du behøver ikke handle på det du mærker.
+        <div class="tc-apply"><strong>Din anvendelse:</strong> Selvkritik og sliklyst. Anerkend følelsen uden at dømme den. Slip den som en tanke der passerer. Ret fokus mod næste handling.</div>
+      </div>
+    </div>
+
+    <div class="tool-card" onclick="togTool(this)">
+      <div class="tc-head">
+        <div class="tc-left">
+          <div class="tc-origin">Stephen Covey</div>
+          <div class="tc-name">Circle of Influence</div>
+          <div class="tc-tagline">Fokuser kun på det du kan påvirke</div>
+        </div>
+        <div class="tc-arrow">↓</div>
+      </div>
+      <div class="tc-body">
+        Din energi er begrænset. Brug den på det du kan ændre — ikke det du ikke kan. Bekymring om fortiden er Circle of Concern. Handling i dag er Circle of Influence.
+        <div class="tc-apply"><strong>Din anvendelse:</strong> Du kan ikke kontrollere at hjernen vil have dopamin. Du kan kontrollere hvad der er i skabet, hvornår du laver måltid 5 og om du møder op til træning.</div>
+      </div>
+    </div>
+
+    <div class="tool-card" onclick="togTool(this)">
+      <div class="tc-head">
+        <div class="tc-left">
+          <div class="tc-origin">Navy SEALs · Mark Divine</div>
+          <div class="tc-name">Box Breathing</div>
+          <div class="tc-tagline">4-4-4-4 · Taktisk vejrtrækning</div>
+        </div>
+        <div class="tc-arrow">↓</div>
+      </div>
+      <div class="tc-body">
+        4 sek ind → 4 hold → 4 ud → 4 hold. Gentag 4 gange. Aktiverer parasympatisk nervesystem og slukker fight-or-flight inden for 90 sekunder. Bruges inden skarpe situationer.
+        <div class="tc-apply"><strong>Din anvendelse:</strong> Morgen-intention, inden vigtige beslutninger og når sliklysten rammer om aftenen. 90 sekunder der ændrer din biokemi.</div>
+      </div>
+    </div>
+
+    <div class="tool-card" onclick="togTool(this)">
+      <div class="tc-head">
+        <div class="tc-left">
+          <div class="tc-origin">Stoicism · Marcus Aurelius</div>
+          <div class="tc-name">Premeditatio Malorum</div>
+          <div class="tc-tagline">Negativt visualisering som forberedelse</div>
+        </div>
+        <div class="tc-arrow">↓</div>
+      </div>
+      <div class="tc-body">
+        Forestil dig det værste der kan ske — ikke for at bekymre dig, men for at fjerne frygten og forberede dig mentalt. Brugt aktivt af Navy SEALs og stoiske filosoffer.
+        <div class="tc-apply"><strong>Din anvendelse:</strong> Forestil dig at du spiser slik i aften. Mærk hvordan det føles bagefter. Er det det værd? Den mentale øvelse er stærkere end viljestyrken i øjeblikket.</div>
+      </div>
+    </div>
+
+    <div class="tool-card" onclick="togTool(this)">
+      <div class="tc-head">
+        <div class="tc-left">
+          <div class="tc-origin">SEAL-kultur</div>
+          <div class="tc-name">The 40% Rule</div>
+          <div class="tc-tagline">Du er langt fra udtømt</div>
+        </div>
+        <div class="tc-arrow">↓</div>
+      </div>
+      <div class="tc-body">
+        Når din hjerne siger du er færdig er du kun 40% af vejen. Det gælder fysisk udholdenhed — men også mental modstand mod impulser. Lysten til slik føles overvældende men du er langt fra virkelig udtømt.
+        <div class="tc-apply"><strong>Din anvendelse:</strong> Når selvkritikken siger "du klarer det aldrig" — husk 40%-reglen. Du er ikke udtømt. Du er midt i processen. Du har gjort det med hash og alkohol. Sukker er lettere.</div>
+      </div>
+    </div>
+
+    <div class="tool-card" onclick="togTool(this)">
+      <div class="tc-head">
+        <div class="tc-left">
+          <div class="tc-origin">James Clear</div>
+          <div class="tc-name">Identity-Based Habits</div>
+          <div class="tc-tagline">Du er summen af dine stemmer</div>
+        </div>
+        <div class="tc-arrow">↓</div>
+      </div>
+      <div class="tc-body">
+        Ikke "jeg vil tabe 6 kg" men "jeg er en atlet der forbereder sig til MdS." Hver handling er en stemme for eller imod den identitet. Identiteten er summen af alle dine stemmer over tid.
+        <div class="tc-apply"><strong>Din anvendelse:</strong> Skyr i stedet for slik = én stemme for atleten. Træning gennemført = én stemme. Shockwave booket = én stemme. De akkumulerer.</div>
+      </div>
+    </div>
+
+    <div class="tool-card" onclick="togTool(this)">
+      <div class="tc-head">
+        <div class="tc-left">
+          <div class="tc-origin">Behavioral design</div>
+          <div class="tc-name">Ego Depletion Awareness</div>
+          <div class="tc-tagline">Viljestyrke er begrænset — design systemet</div>
+        </div>
+        <div class="tc-arrow">↓</div>
+      </div>
+      <div class="tc-body">
+        Viljestyrke er en begrænset ressource der tømmes gennem dagen. Det er ikke tilfældigt at sliklysten rammer om aftenen — du har brugt din kapacitet på arbejde, børn og træning.
+        <div class="tc-apply"><strong>Din anvendelse:</strong> Design systemet om aftenen mens du stadig har kapacitet. Lav måltid 5 klar. Fjern slik fra huset. Brug ikke viljestyrke til det der kan løses med system.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SELVKRITIK SPECIFIK -->
+<div class="section">
+  <div class="sec-label">Selvkritik & Perfektionisme</div>
+  <div class="sec-title">DIN STØRSTE MODSTANDER</div>
+
+  <div class="quote-block">
+    <div class="quote-text">"You are not your thoughts. You are the one who notices them."</div>
+    <div class="quote-attr">— ACT, Acceptance and Commitment Therapy</div>
+  </div>
+
+  <div class="protocol-block t-mut" style="margin-top:1rem" onclick="tog(this)">
+    <div class="pb-head">
+      <div class="pb-time" style="font-size:1.2rem;width:60px">KRITIK</div>
+      <div class="pb-divider"></div>
+      <div class="pb-info">
+        <div class="pb-title">Selvkritik-protokol — hvad gør du når den rammer</div>
+        <div class="pb-meta">ACT + SOF After Action Review</div>
+      </div>
+      <div class="pb-badge">Vigtig</div>
+      <div class="pb-arrow">↓</div>
+    </div>
+    <div class="pb-body">
+      <ul class="pb-steps">
+        <li class="pb-step"><span class="pb-step-n">1</span><span><strong>Navngiv tanken:</strong> "Jeg har tanken om at jeg er svag." Ikke "jeg er svag." Afstand skaber frihed.</span></li>
+        <li class="pb-step"><span class="pb-step-n">2</span><span><strong>Er det facts eller fortolkning?</strong> "Jeg spiste slik" = fact. "Jeg er svag og vil aldrig klare det" = fortolkning. Behold kun facts.</span></li>
+        <li class="pb-step"><span class="pb-step-n">3</span><span><strong>Hvad ville du sige til en holdkammerat?</strong> SOF-princip: du ville ikke knuse en holdkammerat der fejlede. Giv dig selv samme standard.</span></li>
+        <li class="pb-step"><span class="pb-step-n">4</span><span><strong>Næste stemme:</strong> Hvad er den næste handling der stemmer for atleten? Kun den næste. Ikke alle fremtidige.</span></li>
+      </ul>
+      <div class="pb-note n-gold"><strong>Perfektionisme er selvkritikkens motor:</strong> Du forventer 100% og straffer dig selv for 85%. En SOF-soldat forventer 80% og justerer de resterende 20%. Fremskridt over perfektion.</div>
+    </div>
+  </div>
+</div>
+
+<!-- VICTORY TRACKER -->
+<div class="section">
+  <div class="sec-label">Sejrs-tracker — denne uge</div>
+  <div class="sec-title">STEM PÅ ATLETEN</div>
+  <p style="font-size:13px;color:var(--mut);margin-bottom:1rem;line-height:1.6">Tryk på dagen. Grøn = atleten vandt. Rød = atleten tabte en batalje. En tabt batalje er ikke en tabt krig — det er data.</p>
+
+  <div class="victory-days" style="margin-bottom:6px">
+    <div class="vd-label">Man</div>
+    <div class="vd-label">Tir</div>
+    <div class="vd-label">Ons</div>
+    <div class="vd-label">Tor</div>
+    <div class="vd-label">Fre</div>
+    <div class="vd-label">Lør</div>
+    <div class="vd-label">Søn</div>
+  </div>
+  <div class="victory-grid" id="victoryGrid">
+    <div class="v-day" onclick="toggleDay(this)"></div>
+    <div class="v-day" onclick="toggleDay(this)"></div>
+    <div class="v-day" onclick="toggleDay(this)"></div>
+    <div class="v-day" onclick="toggleDay(this)"></div>
+    <div class="v-day" onclick="toggleDay(this)"></div>
+    <div class="v-day" onclick="toggleDay(this)"></div>
+    <div class="v-day" onclick="toggleDay(this)"></div>
+  </div>
+  <div class="victory-legend">
+    <div class="vl-item"><div class="vl-dot" style="background:var(--grn)"></div>Atlet vandt</div>
+    <div class="vl-item"><div class="vl-dot" style="background:var(--rl);border:1px solid rgba(200,75,75,0.3)"></div>Batalje tabt</div>
+    <div class="vl-item"><div class="vl-dot" style="background:var(--sur);border:1px solid var(--bor)"></div>Ikke registreret</div>
+  </div>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-title">Systemet i korthed</div>
+  <div class="footer-grid">
+    <div class="fi"><div class="fi-l">Morgen · 3 min</div><div class="fi-v">Identitet + Box Breathing + intention</div></div>
+    <div class="fi"><div class="fi-l">Middag · 2 min</div><div class="fi-v">OODA check-in · Én konkret handling</div></div>
+    <div class="fi"><div class="fi-l">Aften · kl. 19</div><div class="fi-v">Lav måltid 5 klar · Fjern slik fra huset</div></div>
+    <div class="fi"><div class="fi-l">Aften · 5 min</div><div class="fi-v">AAR · Ingen skyld · Kun data og justering</div></div>
+    <div class="fi"><div class="fi-l">Selvkritik</div><div class="fi-v">Facts vs. fortolkning · Næste stemme</div></div>
+    <div class="fi"><div class="fi-l">Mantra</div><div class="fi-v">Fremskridt over perfektion · Én stemme ad gangen</div></div>
+  </div>
+</div>
+
+
+
+</div>
+
+<!-- BOTTOM NAV -->
+<nav class="app-nav">
+  <button class="nav-item active" id="nav-home" onclick="showView('home')">
+    <span class="nav-icon">⚡</span><span class="nav-label">Hjem</span>
+  </button>
+  <button class="nav-item" id="nav-madplan" onclick="showView('madplan')">
+    <span class="nav-icon">🥗</span><span class="nav-label">Mad</span>
+  </button>
+  <button class="nav-item" id="nav-tracker" onclick="showView('tracker')">
+    <span class="nav-icon">💪</span><span class="nav-label">Styrke</span>
+  </button>
+  <button class="nav-item" id="nav-mobility" onclick="showView('mobility')">
+    <span class="nav-icon">🧘</span><span class="nav-label">Mobility</span>
+  </button>
+  <button class="nav-item" id="nav-mental" onclick="showView('mental')">
+    <span class="nav-icon">🧠</span><span class="nav-label">Mental</span>
+  </button>
+</nav>
+
+<script>
+var TITLES={home:'',madplan:'Madplan',tracker:'Styrke Tracker',mobility:'Mobility',mental:'Mental Performance'};
+var _sy=0;
+document.addEventListener('touchstart',function(e){_sy=e.touches[0].clientY;},{passive:true});
+function st(e,view){if(Math.abs(e.changedTouches[0].clientY-_sy)<12){e.preventDefault();showView(view);}}
+function showView(view){
+  document.querySelectorAll('.view-panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.nav-item').forEach(function(n){n.classList.remove('active');});
+  var panel=document.getElementById('view-'+view);
+  var btn=document.getElementById('nav-'+view);
+  var hdr=document.getElementById('app-header');
+  var ttl=document.getElementById('header-title');
+  if(panel){panel.classList.add('active');window.scrollTo(0,0);}
+  if(btn)btn.classList.add('active');
+  if(hdr)hdr.classList.toggle('hidden',view==='home');
+  if(ttl)ttl.textContent=TITLES[view]||'';
+}
+(function(){
+  var d=['Søndag','Mandag','Tirsdag','Onsdag','Torsdag','Fredag','Lørdag'];
+  var m=['jan','feb','mar','apr','maj','jun','jul','aug','sep','okt','nov','dec'];
+  var n=new Date();
+  var el=document.getElementById('splash-date');
+  if(el)el.textContent=d[n.getDay()]+' · '+n.getDate()+'. '+m[n.getMonth()]+' '+n.getFullYear();
+})();
+
+document.addEventListener('DOMContentLoaded',function(){
+  // Universal toggle for all expandable cards
+  var toggleSels=['.meal-header','.protocol-block','.tool-card','.ec','.ex-head'];
+  toggleSels.forEach(function(sel){
+    document.querySelectorAll(sel).forEach(function(el){
+      var sy=0,mv=false;
+      el.addEventListener('touchstart',function(e){sy=e.touches[0].clientY;mv=false;},{passive:true});
+      el.addEventListener('touchmove',function(e){if(Math.abs(e.touches[0].clientY-sy)>10)mv=true;},{passive:true});
+      el.addEventListener('touchend',function(e){
+        if(!mv){
+          e.preventDefault();
+          var card=el.classList.contains('meal-header')||el.classList.contains('ex-head')
+            ?el.parentElement
+            :el;
+          card.classList.toggle('open');
+        }
+      },{passive:false});
+    });
+  });
+  // Victory tracker
+  document.querySelectorAll('.v-day').forEach(function(d){
+    var sy=0;
+    d.addEventListener('touchstart',function(e){sy=e.touches[0].clientY;},{passive:true});
+    d.addEventListener('touchend',function(e){
+      if(Math.abs(e.changedTouches[0].clientY-sy)<10){
+        e.preventDefault();
+        if(!d.classList.contains('won')&&!d.classList.contains('lost'))d.classList.add('won');
+        else if(d.classList.contains('won')){d.classList.remove('won');d.classList.add('lost');}
+        else d.classList.remove('lost');
+      }
+    },{passive:false});
+  });
+  // Baseline history
+  document.querySelectorAll('.bhist-btn').forEach(function(btn){
+    btn.addEventListener('touchend',function(e){
+      e.preventDefault();
+      var m=btn.getAttribute('onclick').match(/'([^']+)'/);
+      if(m)tbh(m[1]);
+    },{passive:false});
+  });
+});
+
+// Desktop click handlers
+function tog(el){el.classList.toggle('open');}
+function togTool(el){el.classList.toggle('open');}
+function toggleDay(el){
+  if(!el.classList.contains('won')&&!el.classList.contains('lost'))el.classList.add('won');
+  else if(el.classList.contains('won')){el.classList.remove('won');el.classList.add('lost');}
+  else el.classList.remove('lost');
+}
+
+// MODULE JS
+
+// MADPLAN JS
+// ═══════════════════════════════════
+// Touch handled globally
+
+// ═══════════════════════════════════
+// TRACKER JS
+// ═══════════════════════════════════
+const SK = 'styrke_v4';
+const DOB = new Date(1977, 5, 19);
+
+function getAge() {
+  const now = new Date();
+  let y = now.getFullYear() - DOB.getFullYear();
+  const m = now.getMonth() - DOB.getMonth();
+  if (m < 0 || (m === 0 && now.getDate() < DOB.getDate())) y--;
+  const days = Math.floor((now - new Date(DOB.getFullYear() + y, DOB.getMonth(), DOB.getDate())) / 86400000);
+  const months = Math.floor(days / 30.44);
+  return { years: y, months };
+}
+
+function ageRed() {
+  const over = Math.max(0, getAge().years - 40);
+  return Math.max(0.70, 1 - over * 0.01);
+}
+
+function r25(v) { return Math.round(v / 2.5) * 2.5; }
+
+function calcB() {
+  const bw = parseFloat(document.getElementById('bw')?.value) || 0;
+  const red = ageRed();
+  const { years, months } = getAge();
+  const adsp = document.getElementById('adsp');
+  if (adsp) adsp.textContent = `${years} år ${months} mdr · Aldersreduktion: ${((1-red)*100).toFixed(0)}%`;
+  if (!bw) return;
+
+  const lifts = [
+    { ids:['sq-b','sq-g','sq-gr'], m:[0.8,1.2,1.5], u:'kg' },
+    { ids:['dl-b','dl-g','dl-gr'], m:[1.0,1.5,1.8], u:'kg' },
+    { ids:['bp-b','bp-g','bp-gr'], m:[0.6,1.0,1.3], u:'kg' },
+    { ids:['mp-b','mp-g','mp-gr'], m:[0.35,0.55,0.75], u:'kg' },
+    { ids:['bor-b','bor-g','bor-gr'], m:[0.5,0.75,1.0], u:'kg' },
+    { ids:['lat-b','lat-g','lat-gr'], m:[0.45,0.65,0.85], u:'kg' },
+  ];
+  lifts.forEach(l => l.m.forEach((mult,i) => {
+    const el = document.getElementById(l.ids[i]);
+    if (el) el.textContent = r25(bw * mult * red) + ' ' + l.u;
+  }));
+
+
+
+  const data = gs(); data['bw'] = bw; ss(data);
+}
+
+function autoSaveTest() {
+  clearTimeout(window._bt);
+  window._bt = setTimeout(saveTest, 1200);
+}
+
+function saveTest() {
+  const bw = parseFloat(document.getElementById('bw')?.value) || 0;
+  if (!bw) return;
+  const red = ageRed();
+  const t = today();
+  const data = gs();
+  const { years, months } = getAge();
+
+  const tests = [
+    { key:'sq', label:'Squat', m:[0.8,1.2,1.5], u:'kg' },
+    { key:'dl', label:'Deadlift', m:[1.0,1.5,1.8], u:'kg' },
+    { key:'bp', label:'Bænkpres', m:[0.6,1.0,1.3], u:'kg' },
+    { key:'mp', label:'Military', m:[0.35,0.55,0.75], u:'kg' },
+    { key:'fc', label:'Carry', m:[0.35,0.5,0.65], u:'kg' },
+  ];
+
+  tests.forEach(t2 => {
+    const hk = 'bh_' + t2.key;
+    const hist = data[hk] || [];
+    const vals = t2.m.map(m => r25(bw * m * red) + t2.u).join(' / ');
+    const entry = { date: t, bw, age: `${years}år`, vals };
+    const idx = hist.findIndex(h => h.date === t);
+    if (idx >= 0) hist[idx] = entry; else hist.unshift(entry);
+    data[hk] = hist.slice(0, 20);
+  });
+
+  // Pull-ups
+  const puH = data['bh_pu'] || [];
+  const puV = [Math.max(3,Math.round(5*red)), Math.max(6,Math.round(10*red)), Math.max(10,Math.round(15*red))];
+  const puEntry = { date: t, bw, age: `${years}år`, vals: puV.join(' / ') + ' reps' };
+  const puIdx = puH.findIndex(h => h.date === t);
+  if (puIdx >= 0) puH[puIdx] = puEntry; else puH.unshift(puEntry);
+  data['bh_pu'] = puH.slice(0, 20);
+
+  // Plank
+  const plH = data['bh_pl'] || [];
+  const plV = [Math.round(20*red), Math.round(35*red), Math.round(50*red)];
+  const plEntry = { date: t, bw, age: `${years}år`, vals: plV.join(' / ') + ' sek' };
+  const plIdx = plH.findIndex(h => h.date === t);
+  if (plIdx >= 0) plH[plIdx] = plEntry; else plH.unshift(plEntry);
+  data['bh_pl'] = plH.slice(0, 20);
+
+  ss(data);
+  loadBHist();
+  const el = document.getElementById('sstatus');
+  if (el) { el.textContent = '✓ Test gemt'; setTimeout(()=>el.textContent='', 2500); }
+}
+
+function loadBHist() {
+  const data = gs();
+  ['sq','dl','bp','mp','pu','fc','pl'].forEach(key => {
+    const hk = 'bh_' + key;
+    const hist = data[hk] || [];
+    const el = document.getElementById('bh-' + key);
+    if (!el) return;
+    el.innerHTML = hist.length === 0
+      ? '<div class="bhi"><span class="bhid">Ingen historik endnu</span></div>'
+      : hist.map(h => `<div class="bhi"><span class="bhid">${h.date} · ${h.bw}kg · ${h.age}</span><span class="bhiv">${h.vals}</span></div>`).join('');
+  });
+}
+
+function tbh(key) {
+  const el = document.getElementById('bh-' + key);
+  if (el) el.classList.toggle('show');
+}
+
+// ── Exercise tracking ──
+const GRP = [
+  {id:'g0', d:'g0d', dh:'g0dh', f:['g0k','g0n']},
+  {id:'gsq', d:'gsqd', dh:'gsqdh', f:['gsq1','gsq2','gsq3','gsq4','gsq5','gsqn']},
+  {id:'gdl', d:'gdld', dh:'gdldh', f:['gdl1','gdl2','gdl3','gdln']},
+  {id:'gbp', d:'gbpd', dh:'gbpdh', f:['gbp1','gbp2','gbp3','gbp4','gbpn']},
+  {id:'gld', d:'gldd', dh:'glddh', f:['gld1','gld2','gld3','gld4','gldn']},
+  {id:'gmp', d:'gmpd', dh:'gmpdh', f:['gmp1','gmp2','gmp3','gmpn']},
+  {id:'gbss', d:'gbssd', dh:'gbssdh', f:['gbss1','gbss2','gbss3','gbssn']},
+  {id:'gslr', d:'gslrd', dh:'gslrdh', f:['gslr1','gslr2','gslr3','gslrn']},
+  {id:'ght', d:'ghtd', dh:'ghtdh', f:['ght1','ght2','ght3','ghtn']},
+  {id:'grdl', d:'grdld', dh:'grdldh', f:['grdl1','grdl2','grdl3','grdln']},
+  {id:'gpl', d:'gpld', dh:'gpldh', f:['gpls','gpln']},
+  {id:'gfc', d:'gfcd', dh:'gfcdh', f:['gfcw','gsps','gfcn']},
+  {id:'gdips', d:'gdipsd', dh:'gdipsdh', f:['gdips','gdipsn']},
+  {id:'gcurl', d:'gcurld', dh:'gcurldh', f:['gcurl1','gcurl2','gcurl3','gcurln']},
+  {id:'h0', d:'h0d', dh:'h0dh', f:['h0v','h0n']},
+  {id:'hgs', d:'hgsd', dh:'hgsdh', f:['hgs1','hgs2','hgs3','hgs4','hgsn']},
+  {id:'hrd', d:'hrdd', dh:'hrddh', f:['hrd1','hrd2','hrd3','hrdn']},
+  {id:'hpu', d:'hpud', dh:'hpudh', f:['hpub','hpus','hpue','hpun']},
+  {id:'hrw', d:'hrwd', dh:'hrwdh', f:['hrw1','hrw2','hrw3','hrw4','hrwn']},
+  {id:'hsp', d:'hspd', dh:'hspdh', f:['hsp1','hsp2','hsp3','hspn']},
+  {id:'hlu', d:'hlud', dh:'hludh', f:['hlu1','hlu2','hlu3','hlun']},
+  {id:'hsl', d:'hsld', dh:'hsldh', f:['hsl1','hsl2','hsl3','hsln']},
+  {id:'hgb', d:'hgbd', dh:'hgbdh', f:['hgb1','hgb2','hgb3','hgbn']},
+  {id:'hci', d:'hcid', dh:'hcidh', f:['hpls','hdbr','hfww','hcin']},
+  {id:'htri', d:'htrid', dh:'htridh', f:['htri1','htri2','htri3','htrin']},
+  {id:'hcrl', d:'hcrld', dh:'hcrldh', f:['hcrl1','hcrl2','hcrl3','hcrln']},
+];
+
+function gs(){try{return JSON.parse(localStorage.getItem(SK))||{};}catch{return{};}}
+function ss(d){try{localStorage.setItem(SK,JSON.stringify(d));}catch{}}
+function today(){return new Date().toLocaleDateString('da-DK',{day:'2-digit',month:'2-digit',year:'numeric'});}
+
+window.addEventListener('load', () => {
+  const data = gs(), t = today();
+  const bwEl = document.getElementById('bw');
+  if (bwEl && data['bw']) bwEl.value = data['bw'];
+  calcB();
+
+  GRP.forEach(g => {
+    g.f.forEach(id => { const el=document.getElementById(id); if(el&&data[id]!==undefined) el.value=data[id]; });
+    const lbl=document.getElementById(g.d), hid=document.getElementById(g.dh);
+    const saved=data[g.dh];
+    if(lbl) lbl.textContent=saved||t;
+    if(hid) hid.value=saved||t;
+  });
+  loadHist();
+  loadBHist();
+});
+
+function save() {
+  const data=gs(), t=today();
+  GRP.forEach(g => {
+    g.f.forEach(id => { const el=document.getElementById(id); if(el) data[id]=el.value; });
+    const lbl=document.getElementById(g.d), hid=document.getElementById(g.dh);
+    if(lbl) lbl.textContent=t;
+    if(hid){hid.value=t; data[g.dh]=t;}
+    const hk='h_'+g.id, hist=data[hk]||[];
+    const vals=g.f.filter(f=>!f.endsWith('n')&&!f.endsWith('v')).map(f=>{const el=document.getElementById(f);return el&&el.value?el.value:null;}).filter(Boolean);
+    if(vals.length){
+      const entry={date:t, weights:vals.join(' · ')};
+      const idx=hist.findIndex(h=>h.date===t);
+      if(idx>=0) hist[idx]=entry; else hist.unshift(entry);
+      data[hk]=hist.slice(0,12);
+    }
+  });
+  ss(data);
+  const el=document.getElementById('sstatus');
+  if(el){el.textContent='✓ Gemt';setTimeout(()=>el.textContent='',2000);}
+  loadHist();
+}
+
+function md(){clearTimeout(window._t);window._t=setTimeout(save,900);const el=document.getElementById('sstatus');if(el)el.textContent='...';}
+
+function loadHist(){
+  const data=gs();
+  GRP.forEach(g=>{
+    const hk='h_'+g.id, hist=data[hk]||[];
+    const el=document.getElementById('h'+g.id);
+    if(!el)return;
+    el.innerHTML=hist.length===0
+      ?'<div class="hi2"><span class="hid">Ingen historik endnu</span></div>'
+      :hist.map(h=>`<div class="hi2"><span class="hid">${h.date}</span><span class="hiw">${h.weights}</span></div>`).join('');
+  });
+}
+
+function th(id){const el=document.getElementById('h'+id);if(el)el.classList.toggle('show');}
+// tog() defined globally above
+function sv(v,btn){
+  document.querySelectorAll('.view').forEach(x=>x.classList.remove('active'));
+  document.querySelectorAll('.nb').forEach(x=>x.classList.remove('active'));
+  document.getElementById('view-'+v).classList.add('active');
+  btn.classList.add('active');
+}
+window.addEventListener('beforeunload',e=>{if(window._t){e.preventDefault();e.returnValue='';}});
+
+// ═══════════════════════════════════
+// MOBILITY JS
+// ═══════════════════════════════════
+// MENTAL JS
+// ═══════════════════════════════════
+// Mental JS functions defined globally
+
+// Touch fix for all clickable elements
+document.addEventListener('DOMContentLoaded', function() {
+  // Protocol blocks
+  document.querySelectorAll('.protocol-block').forEach(function(block) {
+    var startY = 0;
+    block.addEventListener('touchstart', function(e) { startY = e.touches[0].clientY; }, { passive: true });
+    block.addEventListener('touchend', function(e) {
+      if (Math.abs(e.changedTouches[0].clientY - startY) < 10) {
+        e.preventDefault();
+        block.classList.toggle('open');
+      }
+    }, { passive: false });
+  });
+
+  // Tool cards
+  document.querySelectorAll('.tool-card').forEach(function(card) {
+    var startY = 0;
+    card.addEventListener('touchstart', function(e) { startY = e.touches[0].clientY; }, { passive: true });
+    card.addEventListener('touchend', function(e) {
+      if (Math.abs(e.changedTouches[0].clientY - startY) < 10) {
+        e.preventDefault();
+        card.classList.toggle('open');
+      }
+    }, { passive: false });
+  });
+
+  // Victory days
+  document.querySelectorAll('.v-day').forEach(function(day) {
+    day.addEventListener('touchend', function(e) {
+      e.preventDefault();
+      toggleDay(day);
+    }, { passive: false });
+  });
+});
+
+
+
+
+// Update dynamic age displays
+(function() {
+  var dob = new Date(1977, 5, 19);
+  var now = new Date();
+  var age = now.getFullYear() - dob.getFullYear();
+  var m = now.getMonth() - dob.getMonth();
+  if (m < 0 || (m === 0 && now.getDate() < dob.getDate())) age--;
+  
+  // Update all dynamic age spans
+  document.querySelectorAll('.dyn-age').forEach(function(el) {
+    el.textContent = age;
+  });
+  var mobAge = document.getElementById('mob-age');
+  if (mobAge) mobAge.textContent = age;
+  
+  // Update baseline title in tracker
+  var bsecTitle = document.querySelector('.btitl');
+  if (bsecTitle && bsecTitle.textContent.includes('Baseline')) {
+    // Already handled by getAge() in tracker
+  }
+})();
+
+</script>
+</body>
+</html>
