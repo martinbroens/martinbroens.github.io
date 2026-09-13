@@ -1,0 +1,35 @@
+/* Phase 1 additions inherit the existing dark green design tokens. */
+.splash{min-height:auto;padding:2rem 1rem 1rem;justify-content:flex-start}
+.splash-content{max-width:920px}.splash-logo{justify-content:flex-start;margin-bottom:.6rem}
+.splash-tagline{text-align:left;margin-bottom:1.2rem}.splash-date{color:var(--mut);text-align:left}
+.splash-grid{grid-template-columns:repeat(4,1fr)}
+.splash-card{font-family:inherit;color:var(--txt)}
+.hp-card{background:var(--sur);border:1px solid var(--bor2);border-radius:14px;padding:1.1rem;margin-bottom:12px;text-align:left}
+.hp-card h2,.hp-card h3{font-family:'Barlow Condensed',sans-serif;font-weight:600;margin-bottom:.4rem}
+.hp-card p{font-size:14px;line-height:1.6;color:var(--mut)}
+.hp-eyebrow{color:var(--acm);font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:600;margin-bottom:8px}
+.hp-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:12px}.hp-grid>.hp-card{min-width:0}
+.hp-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.hp-btn,.hp-select{min-height:44px;border:1px solid var(--bor2);border-radius:8px;padding:9px 12px;background:var(--sur2);color:var(--txt);font:500 14px 'Barlow',sans-serif;cursor:pointer}
+.hp-btn.primary{background:var(--acc);border-color:var(--acm)}
+.hp-btn[aria-pressed="true"]{background:var(--acl);border-color:var(--acm);color:#A8D3BC}
+.hp-btn:disabled{opacity:.5;cursor:default}.hp-tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px}
+.hp-btn:focus-visible,.hp-select:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.hp-number{font-family:'Bebas Neue',sans-serif;font-size:38px;color:var(--txt)}
+.hp-meta{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.hp-badge{font-size:11px;color:var(--gold);border:1px solid var(--bor2);padding:5px 8px;border-radius:20px}
+.hp-exercise{padding:1rem;background:var(--sur);border:1px solid var(--bor2);border-radius:12px;margin:12px 0}
+.hp-exercise h3{font-size:17px;font-weight:500}.hp-exercise p{color:var(--mut);font-size:12px;line-height:1.6;margin:6px 0}
+.hp-set{display:grid;grid-template-columns:24px repeat(3,minmax(0,1fr)) 44px;gap:8px;align-items:center;margin-top:8px}
+.hp-set input{width:100%;min-width:0;min-height:44px;border:1px solid var(--bor2);border-radius:6px;background:var(--sur2);color:var(--txt);padding:6px;font:16px 'Barlow',sans-serif}
+.hp-set input:focus{outline:2px solid var(--acm)}.hp-set input[type=checkbox]{width:24px;height:24px;accent-color:var(--acm);margin:10px}
+.hp-set.labels{font-size:11px;color:var(--mut)}.hp-set.done{opacity:.7}
+.hp-status{min-height:22px;font-size:13px;color:var(--gold);margin:8px 0}
+.hp-timer{position:sticky;top:54px;z-index:100;background:var(--sur2);border:1px solid var(--acm);border-radius:10px;padding:10px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.hp-timer[hidden]{display:none}.hp-timer output{font-size:24px;font-variant-numeric:tabular-nums}
+.hp-history summary,.hp-legacy summary{padding:12px 0;cursor:pointer;font-weight:500;min-height:44px}
+.hp-history article{border-top:1px solid var(--bor);padding:12px 0;font-size:13px;line-height:1.7}
+.hp-history ul{padding-left:20px}.hp-legacy pre{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;max-height:300px;overflow:auto}
+.hp-field{display:flex;flex-direction:column;gap:5px;font-size:12px;color:var(--mut);margin-top:12px}
+.hp-field textarea{font-size:16px}.hp-fine{font-size:12px!important;color:var(--mut)!important;margin-top:10px}
+@media(max-width:600px){.hp-grid{grid-template-columns:1fr;gap:0}.splash-grid{grid-template-columns:1fr 1fr}.hp-exercise{padding:12px}.hp-set{gap:5px}.splash-logo svg{max-width:100%}}
