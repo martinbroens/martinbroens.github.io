@@ -17,6 +17,9 @@ test('new drafts carry weights but never carry completion, reps or RIR',()=>{
   assert.notEqual(d.id,other.id);
   assert.deepEqual(d.exercises[1].sets[0],{weight:50,value:'',rir:'',done:false});
   assert.equal(d.exercises[1].sets.length,3);
+  assert.equal(d.programVersion,1);
+  assert.equal(d.exercises[1].unit,'reps');
+  assert.equal(d.exercises[1].prescription.max,10);
   assert.equal(lastExercise(sessions,'missing'),null);
 });
 test('validation accepts bodyweight and rejects blanks, invalid values and negatives',()=>{

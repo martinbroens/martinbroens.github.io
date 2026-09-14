@@ -1,5 +1,5 @@
 
-var TITLES={home:'',madplan:'Madplan',tracker:'Strength 2.0',mobility:'Mobility',mental:'Mental Performance'};
+var TITLES={home:'',madplan:'Madplan',tracker:'Strength 2.0',mobility:'Mobility',mental:'Mental Performance',running:'Running Performance',goals:'Dine mål',more:'Human Performance'};
 var _sy=0;
 document.addEventListener('touchstart',function(e){_sy=e.touches[0].clientY;},{passive:true});
 function st(e,view){if(Math.abs(e.changedTouches[0].clientY-_sy)<12){e.preventDefault();showView(view);}}
@@ -12,7 +12,9 @@ function showView(view){
   var hdr=document.getElementById('app-header');
   var ttl=document.getElementById('header-title');
   if(panel){panel.classList.add('active');window.scrollTo(0,0);}
+  if(!btn)btn=document.getElementById('nav-more');
   if(btn)btn.classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(n=>n.setAttribute('aria-current',n===btn?'page':'false'));
   if(hdr)hdr.classList.toggle('hidden',view==='home');
   if(ttl)ttl.textContent=TITLES[view]||'';
   document.dispatchEvent(new CustomEvent('hp:view', {detail:view}));

@@ -46,15 +46,15 @@ export function validSet(set) {
     Number.isFinite(Number(set.rir)) && Number(set.rir)>=0 && Number(set.rir)<=10;
 }
 export function lastExercise(sessions,id) {
-  for(const session of sessions) {
+  for(const session of [...sessions].sort((a,b)=>b.date.localeCompare(a.date)||(b.finishedAt||'').localeCompare(a.finishedAt||''))) {
     const ex=session.exercises.find(x=>x.id===id && x.sets.some(s=>s.done));
     if(ex)return {date:session.date,sets:ex.sets.filter(s=>s.done)};
   }
   return null;
 }
 export function createDraft(program,sessions) {
-  return {id:crypto.randomUUID(),program,date:localDate(),notes:'',exercises:PROGRAMS[program].exercises.map(ex=>{
+  return {id:crypto.randomUUID(),program,programVersion:1,date:localDate(),createdAt:new Date().toISOString(),goalIds:[],notes:'',exercises:PROGRAMS[program].exercises.map(ex=>{
     const previous=lastExercise(sessions,ex.id);
-    return {id:ex.id,sets:Array.from({length:ex.sets},(_,i)=>({weight:previous?.sets[i]?.weight??'',value:'',rir:'',done:false}))};
+    return {id:ex.id,name:ex.name,unit:ex.unit,load:ex.load,side:ex.side,prescription:{sets:ex.sets,min:ex.min,max:ex.max,rir:ex.rir},sets:Array.from({length:ex.sets},(_,i)=>({weight:previous?.sets[i]?.weight??'',value:'',rir:'',done:false}))};
   })};
 }

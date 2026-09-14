@@ -33,3 +33,16 @@
 .hp-field{display:flex;flex-direction:column;gap:5px;font-size:12px;color:var(--mut);margin-top:12px}
 .hp-field textarea{font-size:16px}.hp-fine{font-size:12px!important;color:var(--mut)!important;margin-top:10px}
 @media(max-width:600px){.hp-grid{grid-template-columns:1fr;gap:0}.splash-grid{grid-template-columns:1fr 1fr}.hp-exercise{padding:12px}.hp-set{gap:5px}.splash-logo svg{max-width:100%}}
+.hp-dashboard-title{display:flex;align-items:center;justify-content:space-between;gap:12px;text-align:left;margin:1.4rem 0}
+.hp-dashboard-title h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(28px,6vw,40px);font-weight:600}
+.hp-feature{background:linear-gradient(140deg,rgba(45,90,61,.32),var(--sur));border-color:rgba(74,138,106,.4)}
+.hp-metrics{display:flex;flex-wrap:wrap;gap:24px;margin:18px 0}.hp-metrics div{display:flex;flex-direction:column;gap:4px}.hp-metrics strong{font:36px 'Bebas Neue',sans-serif}.hp-metrics span{font-size:12px;color:var(--mut)}
+.hp-timeline{list-style:none;margin:10px 0}.hp-timeline li{display:grid;grid-template-columns:120px 1fr;gap:14px;border-top:1px solid var(--bor);padding:14px 0;font-size:13px}.hp-timeline time{color:var(--acm)}.hp-timeline li div{display:flex;flex-direction:column;gap:4px}.hp-timeline span{font-size:12px;color:var(--mut)}
+.hp-module-grid,.hp-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.hp-module-grid button{font:inherit;color:var(--txt);cursor:pointer;width:100%}
+.hp-goal-section{margin:28px 0}.hp-goal-section>h2{font:24px 'Barlow Condensed',sans-serif;margin-bottom:12px}
+.hp-card details summary,.hp-old-baseline>summary{cursor:pointer;min-height:44px;padding:12px 0;font-size:14px}
+.hp-chips{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}.hp-check{display:flex;gap:12px;align-items:center;min-height:48px;font-size:14px;margin-top:10px}.hp-check input{width:22px;height:22px;accent-color:var(--acm)}
+.hp-checkpoint{border:1px solid var(--bor2);border-radius:8px;padding:12px;margin:12px 0;display:grid;grid-template-columns:1fr 1fr;gap:8px;min-width:0}.hp-checkpoints{padding:12px 0 0 20px;font-size:13px;line-height:1.7}.hp-spaced{margin-top:20px}
+.hp-field input,.hp-field select{min-width:0;width:100%;font-size:16px}.hp-field textarea{min-height:88px}.hp-table-scroll{overflow-x:auto}.hp-table-scroll table{min-width:290px}.hp-old-baseline{color:var(--mut)}
+#hp-goal-editor{scroll-margin-top:66px}.hp-card h2,.hp-card h3,.hp-timeline strong{overflow-wrap:anywhere}
+@media(max-width:480px){.hp-form-grid,.hp-module-grid{grid-template-columns:1fr}.hp-timeline li{grid-template-columns:90px 1fr;gap:10px}.hp-metrics{gap:18px}.hp-dashboard-title{align-items:flex-start}.hp-checkpoint{grid-template-columns:1fr}}

@@ -384,6 +384,7 @@
 </div>
 
 <div id="strength-app" class="module-wrap"></div>
+<details class="hp-old-baseline module-wrap"><summary>Tidligere beregnede styrkemål</summary>
 <!-- BASELINE CALCULATOR -->
 <div class="bsec">
   <div class="binn">
@@ -527,6 +528,7 @@
   </div>
 </div>
 
+</details>
 </div>
 
 
@@ -1224,23 +1226,16 @@
 
 </div>
 
+<div class="view-panel" id="view-running"><header class="mod-hero"><div class="mod-hero-eye">BRØNS Human Performance</div><h1 class="mod-hero-title">Running <span class="g">Performance</span></h1></header><div class="module-wrap" id="running-app"></div></div>
+<div class="view-panel" id="view-goals"><header class="mod-hero"><div class="mod-hero-eye">BRØNS Human Performance</div><h1 class="mod-hero-title">Dine <span class="g">mål</span></h1></header><div class="module-wrap" id="goals-app"></div></div>
+<div class="view-panel" id="view-more"><header class="mod-hero"><div class="mod-hero-eye">BRØNS Human Performance</div><h1 class="mod-hero-title">Hele din <span class="g">performance</span></h1></header><div class="module-wrap" id="more-app"></div></div>
 <!-- BOTTOM NAV -->
-<nav class="app-nav">
-  <button class="nav-item active" id="nav-home" onclick="showView('home')">
-    <span class="nav-icon">⚡</span><span class="nav-label">Hjem</span>
-  </button>
-  <button class="nav-item" id="nav-madplan" onclick="showView('madplan')">
-    <span class="nav-icon">🥗</span><span class="nav-label">Mad</span>
-  </button>
-  <button class="nav-item" id="nav-tracker" onclick="showView('tracker')">
-    <span class="nav-icon">💪</span><span class="nav-label">Styrke</span>
-  </button>
-  <button class="nav-item" id="nav-mobility" onclick="showView('mobility')">
-    <span class="nav-icon">🧘</span><span class="nav-label">Mobility</span>
-  </button>
-  <button class="nav-item" id="nav-mental" onclick="showView('mental')">
-    <span class="nav-icon">🧠</span><span class="nav-label">Mental</span>
-  </button>
+<nav class="app-nav" aria-label="Hovednavigation">
+<button class="nav-item active" id="nav-home" onclick="showView('home')"><span class="nav-icon" aria-hidden="true">◈</span><span class="nav-label">Overblik</span></button>
+<button class="nav-item " id="nav-tracker" onclick="showView('tracker')"><span class="nav-icon" aria-hidden="true">↗</span><span class="nav-label">Styrke</span></button>
+<button class="nav-item " id="nav-running" onclick="showView('running')"><span class="nav-icon" aria-hidden="true">⌁</span><span class="nav-label">Løb</span></button>
+<button class="nav-item " id="nav-goals" onclick="showView('goals')"><span class="nav-icon" aria-hidden="true">◎</span><span class="nav-label">Mål</span></button>
+<button class="nav-item " id="nav-more" onclick="showView('more')"><span class="nav-icon" aria-hidden="true">•••</span><span class="nav-label">Mere</span></button>
 </nav>
 
 <script src="assets/legacy.js"></script>
