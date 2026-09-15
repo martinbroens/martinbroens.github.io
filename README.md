@@ -2,6 +2,8 @@
 
 Personal performance platform built as static HTML/CSS/JavaScript modules. Work remains on `codex/human-performance-strength-2`; do not merge or deploy without explicit approval.
 
+Long-term direction: Martin's cross-domain **Human Performance Operating System**, with five equal domains and shared knowledge, practice, experience, insights and goals. See [PRODUCT_VISION.md](PRODUCT_VISION.md) for the connected learning lifecycle and mobile/desktop direction. This is architecture guidance, not an expansion of the current implementation scope. Provisional shared references live in `assets/platform-models.d.ts`; no new runtime storage is introduced.
+
 ## Working features
 
 - Mobile dashboard: strength draft, weekly saved sessions/sets, next goal, primary goal, data status and timeline.

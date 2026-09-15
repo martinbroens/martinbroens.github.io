@@ -1,15 +1,12 @@
 import type {RecordBase, Source} from './models.js';
+import type {PerformanceRelation} from './platform-models.js';
+export type {PerformanceRelation} from './platform-models.js';
 
 /** Provisional architecture only. No runtime collection or validated content yet.
  * Final schemas, scoring and workflows await the main-chat specification.
  */
 export type MentalDomain = 'mentalPerformance';
 export interface MentalDefinitionRef {id:string; revision:number}
-export interface PerformanceRelation {
-  domain: 'mentalPerformance'|'sleepRecovery'|'nutrition'|'physicalPerformance'|'healthPhysiology';
-  recordId: string;
-  relationType: string; // Context/association, never implied causation.
-}
 
 /** Reusable content is versioned separately from dated personal records. */
 export interface MentalDefinition {

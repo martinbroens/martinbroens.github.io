@@ -1,5 +1,13 @@
 # Human Performance: foundation, phase 2
 
+## Product architecture direction
+
+[PRODUCT_VISION.md](PRODUCT_VISION.md) is the long-term product boundary: a personal Human Performance Operating System across five equal domains. Strength and Running are capabilities within Physical Performance, not peer top-level domains to Mental Performance. Current navigation and legacy screens are transitional views.
+
+`assets/platform-models.d.ts` reserves shared domain IDs, typed version-aware references and directed links for knowledge, tools/protocols, practice, experiences, AAR, outcomes, learning/adaptation and goals/missions. Existing activities, measurements and goals remain authoritative; future adapters can expose these records through shared references. The Mental relation boundary reuses this shared vocabulary. These declarations do not change the v2 document, implement a graph store or validate imported data.
+
+Future Today, knowledge, practice, experience and insights views must compose repository data across domains. Mobile and desktop share contracts, with layouts tailored to daily operation versus research, comparison and planning. Implement these workflows incrementally after specification, including ownership, reference validation and historical revisions. Do not turn the vision into new empty screens or hardcoded legacy content models.
+
 ## Scope and boundaries
 
 Dashboard + Strength 2.0 are the working core. Goals has a small working editor and permanent logical history. Running Performance has a read-only presentation boundary and honest empty states. Nutrition, Mobility and Mental retain their existing content. Recovery/readiness, tests, benchmarks and advanced longitudinal analysis are prepared as domain contracts, not implemented products.
@@ -58,7 +66,7 @@ Laboratory measurements, wearable estimates and self-reported values must retain
 
 ### Mental Performance: reserved first-class domain
 
-`mentalPerformance` is a separate future domain, alongside Strength and Running Performance. `assets/mental-models.d.ts` defines provisional boundaries, not an implemented or clinically validated specification. The current `mental` route, HTML content and legacy interactions are a temporary presentation layer. Their current frameworks, questions, protocols, identity text, daily schedule and victory tracker must not become permanent schema, default prescriptions or inferred history.
+`mentalPerformance` is a separate future domain alongside Physical Performance, Sleep & Recovery, Nutrition and Health & Physiology. `assets/mental-models.d.ts` defines provisional boundaries, not an implemented or clinically validated specification. The current `mental` route, HTML content and legacy interactions are a temporary presentation layer. Their current frameworks, questions, protocols, identity text, daily schedule and victory tracker must not become permanent schema, default prescriptions or inferred history.
 
 The domain separates versioned skill/protocol/tool definitions from dated personal practice, reflection and progression records. It reserves:
 
