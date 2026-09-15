@@ -56,4 +56,22 @@ Laboratory measurements, wearable estimates and self-reported values must retain
 
 ## Decisions for the next phase
 
+### Mental Performance: reserved first-class domain
+
+`mentalPerformance` is a separate future domain, alongside Strength and Running Performance. `assets/mental-models.d.ts` defines provisional boundaries, not an implemented or clinically validated specification. The current `mental` route, HTML content and legacy interactions are a temporary presentation layer. Their current frameworks, questions, protocols, identity text, daily schedule and victory tracker must not become permanent schema, default prescriptions or inferred history.
+
+The domain separates versioned skill/protocol/tool definitions from dated personal practice, reflection and progression records. It reserves:
+
+- Skills and protocols with source, revision and review status.
+- Daily practices with planned/completed/skipped status and optional duration.
+- AAR/reflection with future versioned templates rather than hardcoded questions.
+- Stress-regulation tools and pressure-performance training as reusable definitions; their actual use is recorded as practices.
+- Identity/values as dated user-authored records whose previous versions remain available.
+- Progression/history as sourced observations linked to skills and practices; no invented scoring, streak-based mastery or readiness inference.
+- Explicit record relationships to Sleep/Recovery, Nutrition, Physical Performance and Health/Physiology. Associations do not assert causation.
+
+Mental records reuse profile ownership, source/provenance, local dates, timestamps and goal links. Future repository adapters must persist the new collections through the shared asynchronous boundary. Definition revisions referenced by past practices must remain resolvable. Corrections retain provenance and history; user-controlled privacy/deletion policy is to be specified before storing reflections. Personal reflections must never enter the public repository or be exposed in a shared dashboard by default.
+
+Future timeline integration will project dated practice/reflection/observation events without duplicating source records, and must distinguish planned work from performed practices. No runtime collection, migration, new mental UI, scoring or content has been added in this preparation. Do not interpret or migrate existing legacy content as completed practices or validated mental skills. Await the validated Mental Performance specification from the main chat before implementing these schemas, workflows, content or cross-domain analysis.
+
 Choose backend/account provider and private-data hosting, offline/conflict behavior, and read-only Intervals authorization before building sync. Confirm precise event dates and provide original test reports before filling physiological metrics. No such choice blocks the present static frontend foundation.

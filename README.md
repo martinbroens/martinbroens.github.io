@@ -24,6 +24,7 @@ Navigation: Overblik / Styrke / Løb / Mål / Mere. Existing modules also have d
 - `assets/storage.js`: schema validation, migration and backup.
 - `assets/repository.js`: asynchronous repository contract and local adapter.
 - `assets/models.d.ts`: future activities, plans, tests, measurements, benchmarks, source and coverage contracts.
+- `assets/mental-models.d.ts`: provisional first-class Mental Performance boundaries. Final content, storage and workflows await the validated main-chat specification; the current Mental screen remains a legacy view.
 - `ARCHITECTURE.md`: decisions, limitations and future cloud boundary.
 
 ## Training and data
